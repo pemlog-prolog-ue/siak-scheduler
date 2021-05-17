@@ -3,9 +3,9 @@
 Dibuat menggunakan konsep pemrograman logika dengan bahasa Prolog.
 
 Dibuat oleh:
-- Athallah Annafis ((athallahannafis)[https://github.com/athallahannafis])
-- Bunga Amalia K. ((bungamaku)[https://github.com/bungamaku])
-- Edward Partogi G. A. ((edwardpartogi)[https://github.com/edwardpartogi])
+- Athallah Annafis ([athallahannafis](https://github.com/athallahannafis))
+- Bunga Amalia K. ([bungamaku](https://github.com/bungamaku))
+- Edward Partogi G. A. ([edwardpartogi](https://github.com/edwardpartogi))
 
 Data (Facts):
 1. Nama Mahasiswa

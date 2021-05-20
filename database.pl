@@ -75,3 +75,33 @@ mata_kuliah(mk_42, 'Sistem Operasi untuk Sistem Informasi')
 mata_kuliah(mk_43, 'Statistika dan Probabilitas')
 mata_kuliah(mk_44, 'Struktur Data dan Algoritma')
 mata_kuliah(mk_45, 'Teori Bahasa dan Automata')
+
+% Database prasyarat mata kuliah
+% prasyarat/2
+% /1 : kode mata kuliah
+% /2 : list prasyarat mata kuliah
+
+prasyarat(mk_02, [mk_01, mk_10])
+prasyarat(mk_03, [mk_05])
+prasyarat(mk_05, [mk_04])
+prasyarat(mk_06, [mk_44])
+prasyarat(mk_07, [mk_01, mk_44])
+prasyarat(mk_08, [mk_41, mk_04])
+prasyarat(mk_10, [mk_09])
+prasyarat(mk_13, [mk_08, mk_43, mk_17, mk_16])
+prasyarat(mk_14, [mk_08, mk_34])
+prasyarat(mk_15, [mk_39])
+prasyarat(mk_26, [mk_39])
+prasyarat(mk_28, [mk_05])
+prasyarat(mk_29, [mk_04, mk_17])
+prasyarat(mk_30, [mk_41, mk_01, mk_10, mk_05])
+prasyarat(mk_31, [mk_32])
+prasyarat(mk_33, [mk_45, mk_39])
+prasyarat(mk_34, [mk_04])
+prasyarat(mk_35, [mk_01, mk_10])
+prasyarat(mk_37, [mk_31, mk_39])
+prasyarat(mk_38, [mk_01, mk_43])
+prasyarat(mk_40, [mk_34])
+prasyarat(mk_41, [mk_31])
+prasyarat(mk_43, [mk_09, mk_17])
+prasyarat(mk_45, [mk_16, mk_17])

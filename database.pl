@@ -1,4 +1,8 @@
 % Database mahasiswa
+% mahasiswa/2
+% /1 : kode mahasiswa
+% /2 : nama mahasiswa
+
 mahasiswa(m_01, 'Frank Dominguez').
 mahasiswa(m_02, 'James Garza').
 mahasiswa(m_03, 'William Santana').

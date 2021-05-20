@@ -15,7 +15,7 @@ Data (Fakta):
 5. Dosen Kelas = dosen_kelas(k_01, d_01)
 6. Jadwal Kelas = jadwal_kelas(k_01, senin, 8, 10) -> hari, jam mulai, jam selesai
 7. Prasyarat = prasyarat(mk_10, [mk_01, mk_03, mk_09])
-8. Kapasitas = kapasitas(mk_01, 55, 0) -> 0 itu kapasitas yang udah keisi saat ini
+8. Kapasitas = kapasitas(k_01, 55, 0) -> kapasitas maks, kapasitas saat ini
 9. Syarat Lulus Mahasiswa (total: 144, wajib, fakultas, minat)
 10. IP Semester Sebelumnya -> SKS Maksimal Mahasiswa (float)
 11. Preferensi Dosen (A mau ambil kelas dosen B, prioritas 1)

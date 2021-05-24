@@ -224,11 +224,11 @@ kelas(k_061,mk_26,'-').
 
 % pemrograman kompetitif
 kelas(k_062,mk_27,'-').
-kelas(k_063,mk_27,'-').
-kelas(k_064,mk_27,'-').
 
 % pemrograman lanjut
-kelas(k_065,mk_28,'-').
+kelas(k_063,mk_28,'A').
+kelas(k_064,mk_28,'B').
+kelas(k_065,mk_28,'C').
 
 % pemrograman logika
 kelas(k_066,mk_29,'-').

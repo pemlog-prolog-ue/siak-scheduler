@@ -303,3 +303,78 @@ kelas(k_102,mk_44,'B').
 kelas(k_103,mk_45,'A').
 kelas(k_104,mk_45,'B').
 kelas(k_105,mk_45,'C').
+
+% dosen/2
+% /1 = id dosen
+% /2 = nama dosen
+
+dosen(d_01, 'Dr. Dra. Saul James, M.Sc.').
+dosen(d_02, 'Dr.Eng. Eleanor Bell, S.Kom., M.Eng.').
+dosen(d_03, 'Dr. Jon Ramsey, S.Kom., M.Kom.').
+dosen(d_04, 'Prof. Drs. Emilio Washington, M.Sc., Ph.D.').
+dosen(d_05, 'Paul Wood, S.Kom., M.Sc.').
+dosen(d_06, 'Yolanda Ortega, S.Kom., M.Kom.').
+dosen(d_07, 'Cassandra Pope, S.Kom., M.Kom.').
+dosen(d_08, 'Rafael Sanchez, S.Kom., M.Kom., Ph.D.').
+dosen(d_09, 'Rita Spencer, S.Kom., M.Kom.').
+dosen(d_10, 'Crystal Garrett, S.Kom., M.Kom.').
+dosen(d_11, 'Drs. Gilbert Yates, M.Math, Ph.D.').
+dosen(d_12, 'Dr.Eng. Grace Schwartz, S.Kom., M.Sc.').
+dosen(d_13, 'Ruben Holmes, S.Kom., M.Kom.').
+dosen(d_14, 'Joyce Holt, S.T., M.Kom.').
+dosen(d_15, 'Dean Moran, S.T., M.Sc.').
+dosen(d_16, 'Dr.rer.nat. Dorothy Mcdaniel, S.Kom., M.Sc.').
+dosen(d_17, 'Dr. Drs. Mattie Cobb, M.Sc.').
+dosen(d_18, 'Tammy Moody, S.Si., M.Kom.').
+dosen(d_19, 'Nicolas Graves, S.Kom., M.Kom.').
+dosen(d_20, 'Leon Abbott, S.Si., M.Si.').
+dosen(d_21, 'Prof. Adam Pittman, M.Sc., Ph.D.').
+dosen(d_22, 'Sue Flowers, S.Mat., M.Kom.').
+dosen(d_23, 'Sally Nguyen, S.Kom., M.Kom., M.Sc.').
+dosen(d_24, 'Drs. Jerry Roberts, M.Math, Ph.D.').
+dosen(d_25, 'Prof. Dr.Eng. Isabel Sharp, S.T., M.Kom.').
+dosen(d_26, 'Bobby Richardson, S.Kom., M.Eng., Ph.D.').
+dosen(d_27, 'Ross Ramos, S.Kom., M.Kom.').
+dosen(d_28, 'Lauren Farmer, S.Kom., M.Kom.').
+dosen(d_29, 'Dra. Essie Phelps, M.Sc., Ph.D.').
+dosen(d_30, 'Dr. Byron Griffith, S.Kom., M.Sc.').
+dosen(d_31, 'Anna Bailey, S.Kom., M.Kom.').
+dosen(d_32, 'Deborah Obrien, S.Kom., M.Kom.').
+dosen(d_33, 'Dana Fletcher, S.Kom., M.Sc.').
+dosen(d_34, 'Gerald Peters, M.Pd.').
+dosen(d_35, 'Billie Stephens').
+dosen(d_36, 'Esther Cummings, M.Pd.').
+dosen(d_37, 'Ernestine Quinn').
+dosen(d_38, 'Dustin Saunders, M.Pd.').
+dosen(d_39, 'Alma Garcia').
+dosen(d_40, 'Dominick Ryan, M.Pd.').
+dosen(d_41, 'Norma Bowman, S.Pd., M.Pd.').
+dosen(d_42, 'Angie Hunt, S.Pd.').
+dosen(d_43, 'Eric Ross, M.Pd.').
+dosen(d_44, 'Cedric Poole, S.Kom., M.Sc.').
+dosen(d_45, 'Judith Hill, S.Kom., M.Kom., Ph.D.').
+dosen(d_46, 'Mike Hudson, S.Kom., M.Kom.').
+dosen(d_47, 'Dr. Ora Townsend, S.Kom., M.Kom.').
+dosen(d_48, 'Kayla Drake, M.Sc.').
+dosen(d_49, 'Diana Porter, S.Kom., M.I.T., Ph.D.').
+dosen(d_50, 'Pat Williamson, S.Kom., M.Kom.').
+dosen(d_51, 'Brandi Woods, M.Sc.').
+dosen(d_52, 'Nathan Larson, S.Kom., M.Sc., Ph.D.').
+dosen(d_53, 'Dr. Ir. Jodi Francis, M.Sc.').
+dosen(d_54, 'Ir. Jerald Black, M.Kom.').
+dosen(d_55, 'Velma Phillips, S.Kom., M.Hum.').
+dosen(d_56, 'Vanessa Gonzalez, S.Kom., M.Sc.').
+dosen(d_57, 'Dr. Darlene Peterson, S.Kom.').
+dosen(d_58, 'Angelina Cooper, S.Kom., M.Kom.').
+dosen(d_59, 'Frankie Hayes, S.Kom., M.Kom.').
+dosen(d_60, 'Kendra Medina, S.Kom., M.Kom.').
+dosen(d_61, 'Lyle Tyler, S.T., Ph.D.').
+dosen(d_62, 'Mary Bush, S.Kom., M.Comp.Sc').
+dosen(d_63, 'Michele Casey, S.Kom., M.A.').
+dosen(d_64, 'Angel Dennis, M.Kom.').
+dosen(d_65, 'Benjamin Christensen, S.Kom., M.Kom.').
+dosen(d_66, 'Dr. Jacqueline Johnston, S.Kom., M.Kom.').
+dosen(d_67, 'Allison Willis, S.Kom., M.Kom.').
+dosen(d_68, 'Casey Moore, S.Kom., M.Sc., M.Kom.').
+dosen(d_69, 'Lillie Hines, S.Kom., M.Kom.').
+dosen(d_70, 'Ir. Janet Stokes, M.Sc., Ph.D.').

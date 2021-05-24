@@ -378,3 +378,224 @@ dosen(d_67, 'Allison Willis, S.Kom., M.Kom.').
 dosen(d_68, 'Casey Moore, S.Kom., M.Sc., M.Kom.').
 dosen(d_69, 'Lillie Hines, S.Kom., M.Kom.').
 dosen(d_70, 'Ir. Janet Stokes, M.Sc., Ph.D.').
+
+% dosen_kelas/2
+% /1 = id kelas
+% /2 = id dosen
+
+% alin
+dosen_kelas(k_001,  d_01).
+dosen_kelas(k_002,  d_02).
+dosen_kelas(k_003,  d_02).
+dosen_kelas(k_004,  d_03).
+
+% anum
+dosen_kelas(k_005,  d_04).
+dosen_kelas(k_005,  d_05).
+dosen_kelas(k_006,  d_04).
+dosen_kelas(k_006,  d_05).
+
+% basdat
+dosen_kelas(k_007,  d_06).
+dosen_kelas(k_008,  d_07).
+dosen_kelas(k_009,  d_08).
+dosen_kelas(k_010,  d_09).
+dosen_kelas(k_011,  d_07).
+dosen_kelas(k_012,  d_07).
+dosen_kelas(k_012,  d_10).
+
+% ddp2
+dosen_kelas(k_014,  d_11).
+dosen_kelas(k_015,  d_12).
+dosen_kelas(k_016,  d_13).
+dosen_kelas(k_017,  d_14).
+dosen_kelas(k_018,  d_15).
+dosen_kelas(k_019,  d_15).
+dosen_kelas(k_020,  d_16).
+
+% daa
+dosen_kelas(k_021,  d_17).
+dosen_kelas(k_021,  d_18).
+dosen_kelas(k_022,  d_05).
+
+% grafkom
+dosen_kelas(k_023,  d_19).
+
+% jarkom
+dosen_kelas(k_024,  d_13).
+
+% kalkulus 1
+dosen_kelas(k_025,  d_04).
+dosen_kelas(k_025,  d_20).
+
+% kalkulus 2
+dosen_kelas(k_026,  d_21).
+dosen_kelas(k_026,  d_20).
+dosen_kelas(k_027,  d_22).
+dosen_kelas(k_028,  d_22).
+
+% kp
+dosen_kelas(k_029,  d_23).
+
+% komas
+dosen_kelas(k_030,  d_24).
+dosen_kelas(k_031,  d_24).
+dosen_kelas(k_032,  d_25).
+
+% Kriptografi
+dosen_kelas(k_033,  d_26).
+
+% LAW
+dosen_kelas(k_034,  d_27).
+dosen_kelas(k_035,  d_27).
+
+% logkom
+dosen_kelas(k_036,  d_11).
+
+% matdis 2
+dosen_kelas(k_037,  d_28).
+dosen_kelas(k_037,  d_29).
+dosen_kelas(k_038,  d_29).
+dosen_kelas(k_038,  d_14).
+dosen_kelas(k_039,  d_29).
+dosen_kelas(k_039,  d_18).
+dosen_kelas(k_040,  d_18).
+dosen_kelas(k_041,  d_14).
+dosen_kelas(k_042,  d_28).
+
+% matdis 1
+dosen_kelas(k_043,  d_28).
+
+% mppi
+dosen_kelas(k_044,  d_30).
+dosen_kelas(k_045,  d_30).
+dosen_kelas(k_046,  d_31).
+dosen_kelas(k_047,  d_12).
+dosen_kelas(k_048,  d_32).
+dosen_kelas(k_048,  d_33).
+
+% basket
+dosen_kelas(k_050,  d_34).
+dosen_kelas(k_050,  d_35).
+
+% voli
+dosen_kelas(k_051,  d_36).
+dosen_kelas(k_051,  d_37).
+
+% Futsal
+dosen_kelas(k_052,  d_38).
+
+% Sepakbola
+dosen_kelas(k_053,  d_39).
+dosen_kelas(k_053,  d_40).
+
+% Tenis
+dosen_kelas(k_054,  d_36).
+dosen_kelas(k_054,  d_41).
+
+% tenis Meja
+dosen_kelas(k_055,  d_42).
+dosen_kelas(k_055,  d_43).
+
+% mpkt a
+dosen_kelas(k_055,  d_44).
+dosen_kelas(k_055,  d_45).
+dosen_kelas(k_056,  d_01).
+dosen_kelas(k_057,  d_46).
+dosen_kelas(k_057,  d_47).
+dosen_kelas(k_058,  d_17).
+dosen_kelas(k_059,  d_03).
+dosen_kelas(k_059,  d_46).
+dosen_kelas(k_060,  d_45).
+dosen_kelas(k_060,  d_44).
+
+% pembelajaran mesin
+dosen_kelas(k_061,  d_48).
+
+% pemrograman kompetitif
+dosen_kelas(k_062,  d_49).
+
+% pemrograman lanjut
+dosen_kelas(k_063,  d_50).
+dosen_kelas(k_064,  d_50).
+dosen_kelas(k_064,  d_51).
+dosen_kelas(k_065,  d_27).
+
+% pemrograman logika
+dosen_kelas(k_066,  d_52).
+
+% pemrograman paralel
+dosen_kelas(k_067,  d_46).
+dosen_kelas(k_067,  d_21).
+
+% pok
+dosen_kelas(k_068,  d_53).
+dosen_kelas(k_069,  d_53).
+dosen_kelas(k_069,  d_54).
+dosen_kelas(k_070,  d_54).
+
+% psd
+dosen_kelas(k_071,  d_55).
+dosen_kelas(k_071,  d_53).
+
+% nlp
+dosen_kelas(k_072,  d_56).
+
+% ppw
+dosen_kelas(k_073,  d_55).
+
+% persamaan Diferensial
+dosen_kelas(k_074,  d_24).
+
+% ppl
+dosen_kelas(k_075,  d_57).
+dosen_kelas(k_076,  d_51).
+dosen_kelas(k_077,  d_58).
+dosen_kelas(k_078,  d_59).
+
+% robotika
+dosen_kelas(k_079,  d_25).
+
+% sains data
+dosen_kelas(k_080,  d_60).
+dosen_kelas(k_081,  d_60).
+dosen_kelas(k_082,  d_61).
+
+% SC
+dosen_kelas(k_083,  d_62).
+
+% sister
+dosen_kelas(k_084,  d_59).
+dosen_kelas(k_085,  d_63).
+dosen_kelas(k_086,  d_19).
+dosen_kelas(k_087,  d_02).
+dosen_kelas(k_088,  d_59).
+
+% sistem operasi
+dosen_kelas(k_089,  d_64).
+dosen_kelas(k_090,  d_64).
+dosen_kelas(k_091,  d_64).
+
+% Sistem operasi untuk Sistem informasi
+dosen_kelas(k_092,  d_65).
+dosen_kelas(k_092,  d_66).
+dosen_kelas(k_093,  d_58).
+dosen_kelas(k_094,  d_50).
+
+% statprob
+dosen_kelas(k_095,  d_61).
+dosen_kelas(k_096,  d_67).
+dosen_kelas(k_097,  d_62).
+dosen_kelas(k_098,  d_62).
+dosen_kelas(k_099,  d_67).
+dosen_kelas(k_100,  d_61).
+
+% sda
+dosen_kelas(k_101,  d_68).
+dosen_kelas(k_102,  d_09).
+
+% tba
+dosen_kelas(k_103,  d_69).
+dosen_kelas(k_104,  d_69).
+dosen_kelas(k_104,  d_70).
+dosen_kelas(k_105,  d_70).

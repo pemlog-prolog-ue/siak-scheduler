@@ -599,3 +599,204 @@ dosen_kelas(k_103,  d_69).
 dosen_kelas(k_104,  d_69).
 dosen_kelas(k_104,  d_70).
 dosen_kelas(k_105,  d_70).
+
+% kapasitas/2
+% Untuk kapasitas tiap kelas
+% /1 = ID kelas
+% /2 = kapasitas (integer)
+% /3 = kapasitas yang terisi
+
+% alin
+kelas(k_001,60,59).
+kelas(k_002,70,67).
+kelas(k_003,60,49).
+kelas(k_004,68,69).
+
+% anum
+kelas(k_005,80,79).
+kelas(k_006,80,79).
+
+% basdat
+kelas(k_007,67,66).
+kelas(k_008,69,68).
+kelas(k_009,66,66).
+kelas(k_010,69,68).
+kelas(k_011,69,67).
+kelas(k_012,66,66).
+
+% ddp1
+kelas(k_013,55,49).
+
+% ddp2
+kelas(k_014,60,60).
+kelas(k_015,60,50).
+kelas(k_016,60,60).
+kelas(k_017,60,45).
+kelas(k_018,60,60).
+kelas(k_019,60,31).
+kelas(k_020,60,60).
+
+% daa
+kelas(k_021,60,10).
+kelas(k_022,60,59).
+
+% grafkom
+kelas(k_023,50,17).
+
+% jarkom
+kelas(k_024,55,50).
+
+% kalkulus 1
+kelas(k_025,71,68).
+
+% kalkulus 2
+kelas(k_026,73,72).
+kelas(k_027,73,73).
+kelas(k_028,65,65).
+
+% kp
+kelas(k_029,50,9).
+
+% komas
+kelas(k_030,60,34).
+kelas(k_031,61,58).
+kelas(k_032,60,60).
+
+% Kriptografi
+kelas(k_033,50,32).
+
+% LAW
+kelas(k_034,60,46).
+kelas(k_035,60,24).
+
+% logkom
+kelas(k_036,63,61).
+
+% matdis 2
+kelas(k_037,69,69).
+kelas(k_038,69,59).
+kelas(k_039,69,63).
+kelas(k_040,69,54).
+kelas(k_041,69,69).
+kelas(k_042,69,60).
+
+% matdis 1
+kelas(k_043,70,58).
+
+% mppi
+kelas(k_044,68,67).
+kelas(k_045,68,65).
+kelas(k_046,68,68).
+kelas(k_047,68,64).
+kelas(k_048,68,67).
+
+% basket
+kelas(k_050,25,13).
+
+% voli
+kelas(k_051,25,13).
+
+% Futsal
+kelas(k_052,25,17).
+
+% Sepakbola
+kelas(k_053,25,21).
+
+% Tenis
+kelas(k_054,25,25).
+
+% tenis Meja
+kelas(k_055,25,25).
+
+% mpkt a
+kelas(k_055,70,70).
+kelas(k_056,70,70).
+kelas(k_057,70,70).
+kelas(k_058,70,67).
+kelas(k_059,70,70).
+kelas(k_060,70,70).
+
+% pembelajaran mesin
+kelas(k_061,60,28).
+
+% pemrograman kompetitif
+kelas(k_062,40,13).
+
+% pemrograman lanjut
+kelas(k_063,75,69).
+kelas(k_064,75,75).
+kelas(k_065,75,75).
+
+% pemrograman logika
+kelas(k_066,50,28).
+
+% pemrograman paralel
+kelas(k_067,50,5).
+
+% pok
+kelas(k_068,75,75).
+kelas(k_069,78,75).
+kelas(k_070,75,72).
+
+% psd
+kelas(k_071,50,30).
+
+% nlp
+kelas(k_072,50,17).
+
+% ppw
+kelas(k_073,60,22).
+
+% persamaan Diferensial
+kelas(k_074,50,2).
+
+% ppl
+kelas(k_075,50,29).
+kelas(k_076,50,45).
+kelas(k_077,50,45).
+kelas(k_078,50,44).
+
+% robotika
+kelas(k_079,50,11).
+
+% sains data
+kelas(k_080,60,59).
+kelas(k_081,60,60).
+kelas(k_082,60,23).
+
+% SC
+kelas(k_083,50,22).
+
+% sister
+kelas(k_084,71,71).
+kelas(k_085,69,68).
+kelas(k_086,70,64).
+kelas(k_087,68,67).
+kelas(k_088,71,69).
+
+% sistem operasi
+kelas(k_089,60,59).
+kelas(k_090,60,53).
+kelas(k_091,64,64).
+
+% Sistem operasi untuk Sistem informasi
+kelas(k_092,73,70).
+kelas(k_093,73,73).
+kelas(k_094,73,73).
+
+% statprob
+kelas(k_095,66,66).
+kelas(k_096,66,66).
+kelas(k_097,69,60).
+kelas(k_098,67,67).
+kelas(k_099,66,64).
+kelas(k_100,66,63).
+
+% sda
+kelas(k_101,60,60).
+kelas(k_102,60,59).
+
+% tba
+kelas(k_103,69,69).
+kelas(k_104,65,61).
+kelas(k_105,68,68).

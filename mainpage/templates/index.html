@@ -1,12 +1,35 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
+  {% load static  %}
+  <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
   <title>Document</title>
 </head>
 <body>
-  <h>Hello world</h>
+  <div class="main-container">
+    <h2 class="title">Siak Scheduler</h2>
+    <form class="form" action="/" method="post">
+      {% csrf_token %}
+      <div class="field-container">
+        <label>Preferensi Teman: </label>
+        <input type="text" name="preferensi_teman">
+      </div>
+      <div class="field-container">
+        <label>Preferensi Dosen: </label>
+        <input type="text" name="preferensi_dosen">
+      </div>
+      <div class="field-container">
+        <label>Preferensi Minat: </label>
+        <input type="text" name="preferensi_minat">
+      </div>
+      <input type="submit" value="OK">
+    </form>
+    {% if request_data %}
+    {{request_data.preferensi_dosen}}
+    {% endif %}
+  </div>
 </body>
 </html>

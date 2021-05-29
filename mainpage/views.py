@@ -1,7 +1,12 @@
 from django.shortcuts import render
+from pyswip.prolog import Prolog
 
 # Create your views here.
 def index(request):
+  return render(request, "index.html")
+
+def query(request):
+  prolog = Prolog()
   if request.method == "POST":
     print("MASUK")
     preferensi_teman = request.POST.get("preferensi_teman")
@@ -12,6 +17,6 @@ def index(request):
       "preferensi_dosen": preferensi_dosen,
       "preferensi_minat": preferensi_minat
     }
-    print(request_data)
     return render(request, "index.html", {"request_data": request_data})
-  return render(request, "index.html")
+  else:
+    return render(request, "index.html")

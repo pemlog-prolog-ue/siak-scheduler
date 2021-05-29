@@ -600,207 +600,206 @@ dosen_kelas(k_104,  d_69).
 dosen_kelas(k_104,  d_70).
 dosen_kelas(k_105,  d_70).
 
-% kapasitas/2
-% Untuk kapasitas tiap kelas
+% kapasitas_kelas/2
+% kapasitas mahasiswa tiap kelas
 % /1 = ID kelas
-% /2 = kapasitas (integer)
-% /3 = kapasitas yang terisi
+% /2 = kapasitas total
+% /3 = kapasitas yang sudah terisi
 
 % alin
-kelas(k_001,60,59).
-kelas(k_002,70,67).
-kelas(k_003,60,49).
-kelas(k_004,68,69).
+kapasitas_kelas(k_001,60,0).
+kapasitas_kelas(k_002,70,0).
+kapasitas_kelas(k_003,60,0).
+kapasitas_kelas(k_004,68,0).
 
 % anum
-kelas(k_005,80,79).
-kelas(k_006,80,79).
+kapasitas_kelas(k_005,80,0).
+kapasitas_kelas(k_006,80,0).
 
 % basdat
-kelas(k_007,67,66).
-kelas(k_008,69,68).
-kelas(k_009,66,66).
-kelas(k_010,69,68).
-kelas(k_011,69,67).
-kelas(k_012,66,66).
+kapasitas_kelas(k_007,67,0).
+kapasitas_kelas(k_008,69,0).
+kapasitas_kelas(k_009,66,0).
+kapasitas_kelas(k_010,69,0).
+kapasitas_kelas(k_011,69,0).
+kapasitas_kelas(k_012,66,0).
 
 % ddp1
-kelas(k_013,55,49).
+kapasitas_kelas(k_013,55,0).
 
 % ddp2
-kelas(k_014,60,60).
-kelas(k_015,60,50).
-kelas(k_016,60,60).
-kelas(k_017,60,45).
-kelas(k_018,60,60).
-kelas(k_019,60,31).
-kelas(k_020,60,60).
+kapasitas_kelas(k_014,60,0).
+kapasitas_kelas(k_015,60,0).
+kapasitas_kelas(k_016,60,0).
+kapasitas_kelas(k_017,60,0).
+kapasitas_kelas(k_018,60,0).
+kapasitas_kelas(k_019,60,0).
+kapasitas_kelas(k_020,60,0).
 
 % daa
-kelas(k_021,60,10).
-kelas(k_022,60,59).
+kapasitas_kelas(k_021,60,0).
+kapasitas_kelas(k_022,60,0).
 
 % grafkom
-kelas(k_023,50,17).
+kapasitas_kelas(k_023,50,0).
 
 % jarkom
-kelas(k_024,55,50).
+kapasitas_kelas(k_024,55,0).
 
 % kalkulus 1
-kelas(k_025,71,68).
+kapasitas_kelas(k_025,71,0).
 
 % kalkulus 2
-kelas(k_026,73,72).
-kelas(k_027,73,73).
-kelas(k_028,65,65).
+kapasitas_kelas(k_026,73,0).
+kapasitas_kelas(k_027,73,0).
+kapasitas_kelas(k_028,65,0).
 
 % kp
-kelas(k_029,50,9).
+kapasitas_kelas(k_029,50,0).
 
 % komas
-kelas(k_030,60,34).
-kelas(k_031,61,58).
-kelas(k_032,60,60).
+kapasitas_kelas(k_030,60,0).
+kapasitas_kelas(k_031,61,0).
+kapasitas_kelas(k_032,60,0).
 
 % Kriptografi
-kelas(k_033,50,32).
+kapasitas_kelas(k_033,50,0).
 
 % LAW
-kelas(k_034,60,46).
-kelas(k_035,60,24).
+kapasitas_kelas(k_034,60,0).
+kapasitas_kelas(k_035,60,0).
 
 % logkom
-kelas(k_036,63,61).
+kapasitas_kelas(k_036,63,0).
 
 % matdis 2
-kelas(k_037,69,69).
-kelas(k_038,69,59).
-kelas(k_039,69,63).
-kelas(k_040,69,54).
-kelas(k_041,69,69).
-kelas(k_042,69,60).
+kapasitas_kelas(k_037,69,0).
+kapasitas_kelas(k_038,69,0).
+kapasitas_kelas(k_039,69,0).
+kapasitas_kelas(k_040,69,0).
+kapasitas_kelas(k_041,69,0).
+kapasitas_kelas(k_042,69,0).
 
 % matdis 1
-kelas(k_043,70,58).
+kapasitas_kelas(k_043,70,0).
 
 % mppi
-kelas(k_044,68,67).
-kelas(k_045,68,65).
-kelas(k_046,68,68).
-kelas(k_047,68,64).
-kelas(k_048,68,67).
+kapasitas_kelas(k_044,68,0).
+kapasitas_kelas(k_045,68,0).
+kapasitas_kelas(k_046,68,0).
+kapasitas_kelas(k_047,68,0).
+kapasitas_kelas(k_048,68,0).
 
 % basket
-kelas(k_050,25,13).
+kapasitas_kelas(k_050,25,0).
 
 % voli
-kelas(k_051,25,13).
+kapasitas_kelas(k_051,25,0).
 
 % Futsal
-kelas(k_052,25,17).
+kapasitas_kelas(k_052,25,0).
 
 % Sepakbola
-kelas(k_053,25,21).
+kapasitas_kelas(k_053,25,0).
 
 % Tenis
-kelas(k_054,25,25).
+kapasitas_kelas(k_054,25,0).
 
 % tenis Meja
-kelas(k_055,25,25).
+kapasitas_kelas(k_055,25,0).
 
 % mpkt a
-kelas(k_055,70,70).
-kelas(k_056,70,70).
-kelas(k_057,70,70).
-kelas(k_058,70,67).
-kelas(k_059,70,70).
-kelas(k_060,70,70).
+kapasitas_kelas(k_055,70,0).
+kapasitas_kelas(k_056,70,0).
+kapasitas_kelas(k_057,70,0).
+kapasitas_kelas(k_058,70,0).
+kapasitas_kelas(k_059,70,0).
+kapasitas_kelas(k_060,70,0).
 
 % pembelajaran mesin
-kelas(k_061,60,28).
+kapasitas_kelas(k_061,60,0).
 
 % pemrograman kompetitif
-kelas(k_062,40,13).
+kapasitas_kelas(k_062,40,0).
 
 % pemrograman lanjut
-kelas(k_063,75,69).
-kelas(k_064,75,75).
-kelas(k_065,75,75).
+kapasitas_kelas(k_063,75,0).
+kapasitas_kelas(k_064,75,0).
+kapasitas_kelas(k_065,75,0).
 
 % pemrograman logika
-kelas(k_066,50,28).
+kapasitas_kelas(k_066,50,0).
 
 % pemrograman paralel
-kelas(k_067,50,5).
+kapasitas_kelas(k_067,50,0).
 
 % pok
-kelas(k_068,75,75).
-kelas(k_069,78,75).
-kelas(k_070,75,72).
+kapasitas_kelas(k_068,75,0).
+kapasitas_kelas(k_069,78,0).
+kapasitas_kelas(k_070,75,0).
 
 % psd
-kelas(k_071,50,30).
+kapasitas_kelas(k_071,50,0).
 
 % nlp
-kelas(k_072,50,17).
+kapasitas_kelas(k_072,50,0).
 
 % ppw
-kelas(k_073,60,22).
+kapasitas_kelas(k_073,60,0).
 
 % persamaan Diferensial
-kelas(k_074,50,2).
+kapasitas_kelas(k_074,50,0).
 
 % ppl
-kelas(k_075,50,29).
-kelas(k_076,50,45).
-kelas(k_077,50,45).
-kelas(k_078,50,44).
+kapasitas_kelas(k_075,50,0).
+kapasitas_kelas(k_076,50,0).
+kapasitas_kelas(k_077,50,0).
+kapasitas_kelas(k_078,50,0).
 
 % robotika
-kelas(k_079,50,11).
+kapasitas_kelas(k_079,50,0).
 
 % sains data
-kelas(k_080,60,59).
-kelas(k_081,60,60).
-kelas(k_082,60,23).
+kapasitas_kelas(k_080,60,0).
+kapasitas_kelas(k_081,60,0).
+kapasitas_kelas(k_082,60,0).
 
 % SC
-kelas(k_083,50,22).
+kapasitas_kelas(k_083,50,0).
 
 % sister
-kelas(k_084,71,71).
-kelas(k_085,69,68).
-kelas(k_086,70,64).
-kelas(k_087,68,67).
-kelas(k_088,71,69).
+kapasitas_kelas(k_084,71,0).
+kapasitas_kelas(k_085,69,0).
+kapasitas_kelas(k_086,70,0).
+kapasitas_kelas(k_087,68,0).
+kapasitas_kelas(k_088,71,0).
 
 % sistem operasi
-kelas(k_089,60,59).
-kelas(k_090,60,53).
-kelas(k_091,64,64).
+kapasitas_kelas(k_089,60,0).
+kapasitas_kelas(k_090,60,0).
+kapasitas_kelas(k_091,64,0).
 
 % Sistem operasi untuk Sistem informasi
-kelas(k_092,73,70).
-kelas(k_093,73,73).
-kelas(k_094,73,73).
+kapasitas_kelas(k_092,73,0).
+kapasitas_kelas(k_093,73,0).
+kapasitas_kelas(k_094,73,0).
 
 % statprob
-kelas(k_095,66,66).
-kelas(k_096,66,66).
-kelas(k_097,69,60).
-kelas(k_098,67,67).
-kelas(k_099,66,64).
-kelas(k_100,66,63).
+kapasitas_kelas(k_095,66,0).
+kapasitas_kelas(k_096,66,0).
+kapasitas_kelas(k_097,69,0).
+kapasitas_kelas(k_098,67,0).
+kapasitas_kelas(k_099,66,0).
+kapasitas_kelas(k_100,66,0).
 
 % sda
-kelas(k_101,60,60).
-kelas(k_102,60,59).
+kapasitas_kelas(k_101,60,0).
+kapasitas_kelas(k_102,60,0).
 
 % tba
-kelas(k_103,69,69).
-kelas(k_104,65,61).
-kelas(k_105,68,68).
-
+kapasitas_kelas(k_103,69,0).
+kapasitas_kelas(k_104,65,0).
+kapasitas_kelas(k_105,68,0).
 
 % jadwal_kelas/4
 % /1 = id kelas

@@ -27,9 +27,11 @@
       </div>
       <input type="submit" value="OK">
     </form>
-    {% if request_data %}
-    {{request_data.preferensi_dosen}}
-    {% endif %}
+    <div class="result">
+      {% if request_data %}
+      {{request_data}}
+      {% endif %}
+    </div>
   </div>
 </body>
 </html>

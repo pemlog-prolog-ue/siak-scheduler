@@ -224,11 +224,11 @@ kelas(k_061,mk_26,'-').
 
 % pemrograman kompetitif
 kelas(k_062,mk_27,'-').
-kelas(k_063,mk_27,'-').
-kelas(k_064,mk_27,'-').
 
 % pemrograman lanjut
-kelas(k_065,mk_28,'-').
+kelas(k_063,mk_28,'A').
+kelas(k_064,mk_28,'B').
+kelas(k_065,mk_28,'C').
 
 % pemrograman logika
 kelas(k_066,mk_29,'-').
@@ -303,6 +303,504 @@ kelas(k_102,mk_44,'B').
 kelas(k_103,mk_45,'A').
 kelas(k_104,mk_45,'B').
 kelas(k_105,mk_45,'C').
+
+% dosen/2
+% /1 = id dosen
+% /2 = nama dosen
+
+dosen(d_01, 'Dr. Dra. Saul James, M.Sc.').
+dosen(d_02, 'Dr.Eng. Eleanor Bell, S.Kom., M.Eng.').
+dosen(d_03, 'Dr. Jon Ramsey, S.Kom., M.Kom.').
+dosen(d_04, 'Prof. Drs. Emilio Washington, M.Sc., Ph.D.').
+dosen(d_05, 'Paul Wood, S.Kom., M.Sc.').
+dosen(d_06, 'Yolanda Ortega, S.Kom., M.Kom.').
+dosen(d_07, 'Cassandra Pope, S.Kom., M.Kom.').
+dosen(d_08, 'Rafael Sanchez, S.Kom., M.Kom., Ph.D.').
+dosen(d_09, 'Rita Spencer, S.Kom., M.Kom.').
+dosen(d_10, 'Crystal Garrett, S.Kom., M.Kom.').
+dosen(d_11, 'Drs. Gilbert Yates, M.Math, Ph.D.').
+dosen(d_12, 'Dr.Eng. Grace Schwartz, S.Kom., M.Sc.').
+dosen(d_13, 'Ruben Holmes, S.Kom., M.Kom.').
+dosen(d_14, 'Joyce Holt, S.T., M.Kom.').
+dosen(d_15, 'Dean Moran, S.T., M.Sc.').
+dosen(d_16, 'Dr.rer.nat. Dorothy Mcdaniel, S.Kom., M.Sc.').
+dosen(d_17, 'Dr. Drs. Mattie Cobb, M.Sc.').
+dosen(d_18, 'Tammy Moody, S.Si., M.Kom.').
+dosen(d_19, 'Nicolas Graves, S.Kom., M.Kom.').
+dosen(d_20, 'Leon Abbott, S.Si., M.Si.').
+dosen(d_21, 'Prof. Adam Pittman, M.Sc., Ph.D.').
+dosen(d_22, 'Sue Flowers, S.Mat., M.Kom.').
+dosen(d_23, 'Sally Nguyen, S.Kom., M.Kom., M.Sc.').
+dosen(d_24, 'Drs. Jerry Roberts, M.Math, Ph.D.').
+dosen(d_25, 'Prof. Dr.Eng. Isabel Sharp, S.T., M.Kom.').
+dosen(d_26, 'Bobby Richardson, S.Kom., M.Eng., Ph.D.').
+dosen(d_27, 'Ross Ramos, S.Kom., M.Kom.').
+dosen(d_28, 'Lauren Farmer, S.Kom., M.Kom.').
+dosen(d_29, 'Dra. Essie Phelps, M.Sc., Ph.D.').
+dosen(d_30, 'Dr. Byron Griffith, S.Kom., M.Sc.').
+dosen(d_31, 'Anna Bailey, S.Kom., M.Kom.').
+dosen(d_32, 'Deborah Obrien, S.Kom., M.Kom.').
+dosen(d_33, 'Dana Fletcher, S.Kom., M.Sc.').
+dosen(d_34, 'Gerald Peters, M.Pd.').
+dosen(d_35, 'Billie Stephens').
+dosen(d_36, 'Esther Cummings, M.Pd.').
+dosen(d_37, 'Ernestine Quinn').
+dosen(d_38, 'Dustin Saunders, M.Pd.').
+dosen(d_39, 'Alma Garcia').
+dosen(d_40, 'Dominick Ryan, M.Pd.').
+dosen(d_41, 'Norma Bowman, S.Pd., M.Pd.').
+dosen(d_42, 'Angie Hunt, S.Pd.').
+dosen(d_43, 'Eric Ross, M.Pd.').
+dosen(d_44, 'Cedric Poole, S.Kom., M.Sc.').
+dosen(d_45, 'Judith Hill, S.Kom., M.Kom., Ph.D.').
+dosen(d_46, 'Mike Hudson, S.Kom., M.Kom.').
+dosen(d_47, 'Dr. Ora Townsend, S.Kom., M.Kom.').
+dosen(d_48, 'Kayla Drake, M.Sc.').
+dosen(d_49, 'Diana Porter, S.Kom., M.I.T., Ph.D.').
+dosen(d_50, 'Pat Williamson, S.Kom., M.Kom.').
+dosen(d_51, 'Brandi Woods, M.Sc.').
+dosen(d_52, 'Nathan Larson, S.Kom., M.Sc., Ph.D.').
+dosen(d_53, 'Dr. Ir. Jodi Francis, M.Sc.').
+dosen(d_54, 'Ir. Jerald Black, M.Kom.').
+dosen(d_55, 'Velma Phillips, S.Kom., M.Hum.').
+dosen(d_56, 'Vanessa Gonzalez, S.Kom., M.Sc.').
+dosen(d_57, 'Dr. Darlene Peterson, S.Kom.').
+dosen(d_58, 'Angelina Cooper, S.Kom., M.Kom.').
+dosen(d_59, 'Frankie Hayes, S.Kom., M.Kom.').
+dosen(d_60, 'Kendra Medina, S.Kom., M.Kom.').
+dosen(d_61, 'Lyle Tyler, S.T., Ph.D.').
+dosen(d_62, 'Mary Bush, S.Kom., M.Comp.Sc').
+dosen(d_63, 'Michele Casey, S.Kom., M.A.').
+dosen(d_64, 'Angel Dennis, M.Kom.').
+dosen(d_65, 'Benjamin Christensen, S.Kom., M.Kom.').
+dosen(d_66, 'Dr. Jacqueline Johnston, S.Kom., M.Kom.').
+dosen(d_67, 'Allison Willis, S.Kom., M.Kom.').
+dosen(d_68, 'Casey Moore, S.Kom., M.Sc., M.Kom.').
+dosen(d_69, 'Lillie Hines, S.Kom., M.Kom.').
+dosen(d_70, 'Ir. Janet Stokes, M.Sc., Ph.D.').
+
+% dosen_kelas/2
+% /1 = id kelas
+% /2 = id dosen
+
+% alin
+dosen_kelas(k_001,  d_01).
+dosen_kelas(k_002,  d_02).
+dosen_kelas(k_003,  d_02).
+dosen_kelas(k_004,  d_03).
+
+% anum
+dosen_kelas(k_005,  d_04).
+dosen_kelas(k_005,  d_05).
+dosen_kelas(k_006,  d_04).
+dosen_kelas(k_006,  d_05).
+
+% basdat
+dosen_kelas(k_007,  d_06).
+dosen_kelas(k_008,  d_07).
+dosen_kelas(k_009,  d_08).
+dosen_kelas(k_010,  d_09).
+dosen_kelas(k_011,  d_07).
+dosen_kelas(k_012,  d_07).
+dosen_kelas(k_012,  d_10).
+
+% ddp2
+dosen_kelas(k_014,  d_11).
+dosen_kelas(k_015,  d_12).
+dosen_kelas(k_016,  d_13).
+dosen_kelas(k_017,  d_14).
+dosen_kelas(k_018,  d_15).
+dosen_kelas(k_019,  d_15).
+dosen_kelas(k_020,  d_16).
+
+% daa
+dosen_kelas(k_021,  d_17).
+dosen_kelas(k_021,  d_18).
+dosen_kelas(k_022,  d_05).
+
+% grafkom
+dosen_kelas(k_023,  d_19).
+
+% jarkom
+dosen_kelas(k_024,  d_13).
+
+% kalkulus 1
+dosen_kelas(k_025,  d_04).
+dosen_kelas(k_025,  d_20).
+
+% kalkulus 2
+dosen_kelas(k_026,  d_21).
+dosen_kelas(k_026,  d_20).
+dosen_kelas(k_027,  d_22).
+dosen_kelas(k_028,  d_22).
+
+% kp
+dosen_kelas(k_029,  d_23).
+
+% komas
+dosen_kelas(k_030,  d_24).
+dosen_kelas(k_031,  d_24).
+dosen_kelas(k_032,  d_25).
+
+% Kriptografi
+dosen_kelas(k_033,  d_26).
+
+% LAW
+dosen_kelas(k_034,  d_27).
+dosen_kelas(k_035,  d_27).
+
+% logkom
+dosen_kelas(k_036,  d_11).
+
+% matdis 2
+dosen_kelas(k_037,  d_28).
+dosen_kelas(k_037,  d_29).
+dosen_kelas(k_038,  d_29).
+dosen_kelas(k_038,  d_14).
+dosen_kelas(k_039,  d_29).
+dosen_kelas(k_039,  d_18).
+dosen_kelas(k_040,  d_18).
+dosen_kelas(k_041,  d_14).
+dosen_kelas(k_042,  d_28).
+
+% matdis 1
+dosen_kelas(k_043,  d_28).
+
+% mppi
+dosen_kelas(k_044,  d_30).
+dosen_kelas(k_045,  d_30).
+dosen_kelas(k_046,  d_31).
+dosen_kelas(k_047,  d_12).
+dosen_kelas(k_048,  d_32).
+dosen_kelas(k_048,  d_33).
+
+% basket
+dosen_kelas(k_050,  d_34).
+dosen_kelas(k_050,  d_35).
+
+% voli
+dosen_kelas(k_051,  d_36).
+dosen_kelas(k_051,  d_37).
+
+% Futsal
+dosen_kelas(k_052,  d_38).
+
+% Sepakbola
+dosen_kelas(k_053,  d_39).
+dosen_kelas(k_053,  d_40).
+
+% Tenis
+dosen_kelas(k_054,  d_36).
+dosen_kelas(k_054,  d_41).
+
+% tenis Meja
+dosen_kelas(k_055,  d_42).
+dosen_kelas(k_055,  d_43).
+
+% mpkt a
+dosen_kelas(k_055,  d_44).
+dosen_kelas(k_055,  d_45).
+dosen_kelas(k_056,  d_01).
+dosen_kelas(k_057,  d_46).
+dosen_kelas(k_057,  d_47).
+dosen_kelas(k_058,  d_17).
+dosen_kelas(k_059,  d_03).
+dosen_kelas(k_059,  d_46).
+dosen_kelas(k_060,  d_45).
+dosen_kelas(k_060,  d_44).
+
+% pembelajaran mesin
+dosen_kelas(k_061,  d_48).
+
+% pemrograman kompetitif
+dosen_kelas(k_062,  d_49).
+
+% pemrograman lanjut
+dosen_kelas(k_063,  d_50).
+dosen_kelas(k_064,  d_50).
+dosen_kelas(k_064,  d_51).
+dosen_kelas(k_065,  d_27).
+
+% pemrograman logika
+dosen_kelas(k_066,  d_52).
+
+% pemrograman paralel
+dosen_kelas(k_067,  d_46).
+dosen_kelas(k_067,  d_21).
+
+% pok
+dosen_kelas(k_068,  d_53).
+dosen_kelas(k_069,  d_53).
+dosen_kelas(k_069,  d_54).
+dosen_kelas(k_070,  d_54).
+
+% psd
+dosen_kelas(k_071,  d_55).
+dosen_kelas(k_071,  d_53).
+
+% nlp
+dosen_kelas(k_072,  d_56).
+
+% ppw
+dosen_kelas(k_073,  d_55).
+
+% persamaan Diferensial
+dosen_kelas(k_074,  d_24).
+
+% ppl
+dosen_kelas(k_075,  d_57).
+dosen_kelas(k_076,  d_51).
+dosen_kelas(k_077,  d_58).
+dosen_kelas(k_078,  d_59).
+
+% robotika
+dosen_kelas(k_079,  d_25).
+
+% sains data
+dosen_kelas(k_080,  d_60).
+dosen_kelas(k_081,  d_60).
+dosen_kelas(k_082,  d_61).
+
+% SC
+dosen_kelas(k_083,  d_62).
+
+% sister
+dosen_kelas(k_084,  d_59).
+dosen_kelas(k_085,  d_63).
+dosen_kelas(k_086,  d_19).
+dosen_kelas(k_087,  d_02).
+dosen_kelas(k_088,  d_59).
+
+% sistem operasi
+dosen_kelas(k_089,  d_64).
+dosen_kelas(k_090,  d_64).
+dosen_kelas(k_091,  d_64).
+
+% Sistem operasi untuk Sistem informasi
+dosen_kelas(k_092,  d_65).
+dosen_kelas(k_092,  d_66).
+dosen_kelas(k_093,  d_58).
+dosen_kelas(k_094,  d_50).
+
+% statprob
+dosen_kelas(k_095,  d_61).
+dosen_kelas(k_096,  d_67).
+dosen_kelas(k_097,  d_62).
+dosen_kelas(k_098,  d_62).
+dosen_kelas(k_099,  d_67).
+dosen_kelas(k_100,  d_61).
+
+% sda
+dosen_kelas(k_101,  d_68).
+dosen_kelas(k_102,  d_09).
+
+% tba
+dosen_kelas(k_103,  d_69).
+dosen_kelas(k_104,  d_69).
+dosen_kelas(k_104,  d_70).
+dosen_kelas(k_105,  d_70).
+
+% kapasitas/2
+% Untuk kapasitas tiap kelas
+% /1 = ID kelas
+% /2 = kapasitas (integer)
+% /3 = kapasitas yang terisi
+
+% alin
+kelas(k_001,60,59).
+kelas(k_002,70,67).
+kelas(k_003,60,49).
+kelas(k_004,68,69).
+
+% anum
+kelas(k_005,80,79).
+kelas(k_006,80,79).
+
+% basdat
+kelas(k_007,67,66).
+kelas(k_008,69,68).
+kelas(k_009,66,66).
+kelas(k_010,69,68).
+kelas(k_011,69,67).
+kelas(k_012,66,66).
+
+% ddp1
+kelas(k_013,55,49).
+
+% ddp2
+kelas(k_014,60,60).
+kelas(k_015,60,50).
+kelas(k_016,60,60).
+kelas(k_017,60,45).
+kelas(k_018,60,60).
+kelas(k_019,60,31).
+kelas(k_020,60,60).
+
+% daa
+kelas(k_021,60,10).
+kelas(k_022,60,59).
+
+% grafkom
+kelas(k_023,50,17).
+
+% jarkom
+kelas(k_024,55,50).
+
+% kalkulus 1
+kelas(k_025,71,68).
+
+% kalkulus 2
+kelas(k_026,73,72).
+kelas(k_027,73,73).
+kelas(k_028,65,65).
+
+% kp
+kelas(k_029,50,9).
+
+% komas
+kelas(k_030,60,34).
+kelas(k_031,61,58).
+kelas(k_032,60,60).
+
+% Kriptografi
+kelas(k_033,50,32).
+
+% LAW
+kelas(k_034,60,46).
+kelas(k_035,60,24).
+
+% logkom
+kelas(k_036,63,61).
+
+% matdis 2
+kelas(k_037,69,69).
+kelas(k_038,69,59).
+kelas(k_039,69,63).
+kelas(k_040,69,54).
+kelas(k_041,69,69).
+kelas(k_042,69,60).
+
+% matdis 1
+kelas(k_043,70,58).
+
+% mppi
+kelas(k_044,68,67).
+kelas(k_045,68,65).
+kelas(k_046,68,68).
+kelas(k_047,68,64).
+kelas(k_048,68,67).
+
+% basket
+kelas(k_050,25,13).
+
+% voli
+kelas(k_051,25,13).
+
+% Futsal
+kelas(k_052,25,17).
+
+% Sepakbola
+kelas(k_053,25,21).
+
+% Tenis
+kelas(k_054,25,25).
+
+% tenis Meja
+kelas(k_055,25,25).
+
+% mpkt a
+kelas(k_055,70,70).
+kelas(k_056,70,70).
+kelas(k_057,70,70).
+kelas(k_058,70,67).
+kelas(k_059,70,70).
+kelas(k_060,70,70).
+
+% pembelajaran mesin
+kelas(k_061,60,28).
+
+% pemrograman kompetitif
+kelas(k_062,40,13).
+
+% pemrograman lanjut
+kelas(k_063,75,69).
+kelas(k_064,75,75).
+kelas(k_065,75,75).
+
+% pemrograman logika
+kelas(k_066,50,28).
+
+% pemrograman paralel
+kelas(k_067,50,5).
+
+% pok
+kelas(k_068,75,75).
+kelas(k_069,78,75).
+kelas(k_070,75,72).
+
+% psd
+kelas(k_071,50,30).
+
+% nlp
+kelas(k_072,50,17).
+
+% ppw
+kelas(k_073,60,22).
+
+% persamaan Diferensial
+kelas(k_074,50,2).
+
+% ppl
+kelas(k_075,50,29).
+kelas(k_076,50,45).
+kelas(k_077,50,45).
+kelas(k_078,50,44).
+
+% robotika
+kelas(k_079,50,11).
+
+% sains data
+kelas(k_080,60,59).
+kelas(k_081,60,60).
+kelas(k_082,60,23).
+
+% SC
+kelas(k_083,50,22).
+
+% sister
+kelas(k_084,71,71).
+kelas(k_085,69,68).
+kelas(k_086,70,64).
+kelas(k_087,68,67).
+kelas(k_088,71,69).
+
+% sistem operasi
+kelas(k_089,60,59).
+kelas(k_090,60,53).
+kelas(k_091,64,64).
+
+% Sistem operasi untuk Sistem informasi
+kelas(k_092,73,70).
+kelas(k_093,73,73).
+kelas(k_094,73,73).
+
+% statprob
+kelas(k_095,66,66).
+kelas(k_096,66,66).
+kelas(k_097,69,60).
+kelas(k_098,67,67).
+kelas(k_099,66,64).
+kelas(k_100,66,63).
+
+% sda
+kelas(k_101,60,60).
+kelas(k_102,60,59).
+
+% tba
+kelas(k_103,69,69).
+kelas(k_104,65,61).
+kelas(k_105,68,68).
+
 
 % jadwal_kelas/4
 % /1 = id kelas

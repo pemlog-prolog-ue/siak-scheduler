@@ -303,3 +303,292 @@ kelas(k_102,mk_44,'B').
 kelas(k_103,mk_45,'A').
 kelas(k_104,mk_45,'B').
 kelas(k_105,mk_45,'C').
+
+% jadwal_kelas/4
+% /1 = id kelas
+% /2 = hari
+% /3 = jam mulai
+% /4 = menit mulai
+% /5 = jam selesai
+% /6 = menit selesai
+
+% alin
+jadwal_kelas(k_001, senin, 17, 0, 17, 50).
+jadwal_kelas(k_001, rabu, 8, 0, 10, 30).
+jadwal_kelas(k_002, senin, 17, 0, 17, 50).
+jadwal_kelas(k_002, jumat, 8, 0, 10, 30).
+jadwal_kelas(k_003, senin, 17, 0, 17, 50).
+jadwal_kelas(k_003, rabu, 8, 0, 10, 30).
+jadwal_kelas(k_004, senin, 17, 0, 17, 50).
+jadwal_kelas(k_004, jumat, 8, 0, 10, 30).
+
+% anum
+jadwal_kelas(k_005, senin, 8, 0, 9, 40).
+jadwal_kelas(k_005, rabu, 8, 0, 8, 50).
+jadwal_kelas(k_006, senin, 10, 0, 11, 40).
+jadwal_kelas(k_006, rabu, 9, 0, 9, 50).
+
+% basdat
+jadwal_kelas(k_007, selasa, 8, 0, 9, 40).
+jadwal_kelas(k_007, kamis, 8, 0, 9, 40).
+jadwal_kelas(k_008, selasa, 8, 0, 9, 40).
+jadwal_kelas(k_008, kamis, 8, 0, 9, 40).
+jadwal_kelas(k_009, selasa, 8, 0, 9, 40).
+jadwal_kelas(k_009, kamis, 8, 0, 9, 40).
+jadwal_kelas(k_010, selasa, 10, 0, 11, 40).
+jadwal_kelas(k_010, kamis, 10, 0, 11, 40).
+jadwal_kelas(k_011, selasa, 10, 0, 11, 40).
+jadwal_kelas(k_011, kamis, 10, 0, 11, 40).
+jadwal_kelas(k_012, selasa, 8, 0, 9, 40).
+jadwal_kelas(k_012, kamis, 8, 0, 9, 40).
+
+% ddp1
+jadwal_kelas(k_013, senin, 10, 0, 11, 40).
+jadwal_kelas(k_013, selasa, 16, 0, 17, 40).
+jadwal_kelas(k_013, rabu, 10, 0, 11, 40).
+
+% ddp2
+jadwal_kelas(k_014, senin, 8, 0, 9, 40).
+jadwal_kelas(k_014, selasa, 16, 0, 17, 40).
+jadwal_kelas(k_014, rabu, 8, 0, 9, 40).
+jadwal_kelas(k_015, senin, 8, 0, 9, 40).
+jadwal_kelas(k_015, selasa, 16, 0, 17, 40).
+jadwal_kelas(k_015, rabu, 8, 0, 9, 40).
+jadwal_kelas(k_016, senin, 8, 0, 9, 40).
+jadwal_kelas(k_016, selasa, 16, 0, 17, 40).
+jadwal_kelas(k_016, rabu, 8, 0, 9, 40).
+jadwal_kelas(k_017, senin, 10, 0, 11, 40).
+jadwal_kelas(k_017, selasa, 16, 0, 17, 40).
+jadwal_kelas(k_017, rabu, 10, 0, 11, 40).
+jadwal_kelas(k_018, senin, 8, 0, 9, 40).
+jadwal_kelas(k_018, selasa, 16, 0, 17, 40).
+jadwal_kelas(k_018, rabu, 8, 0, 9, 40).
+jadwal_kelas(k_019, senin, 10, 0, 11, 40).
+jadwal_kelas(k_019, selasa, 16, 0, 17, 40).
+jadwal_kelas(k_019, rabu, 10, 0, 11, 40).
+jadwal_kelas(k_020, senin, 10, 0, 11, 40).
+jadwal_kelas(k_020, selasa, 16, 0, 17, 40).
+jadwal_kelas(k_020, rabu, 10, 0, 11, 40).
+
+% daa
+jadwal_kelas(k_021, selasa, 8, 0, 9, 40).
+jadwal_kelas(k_021, rabu, 10, 0, 11, 40).
+jadwal_kelas(k_022, selasa, 8, 0, 9, 40).
+jadwal_kelas(k_022, rabu, 10, 0, 11, 40).
+
+% grafkom
+jadwal_kelas(k_023, rabu, 15, 0, 15, 50).
+jadwal_kelas(k_023, kamis, 15, 0, 16, 40).
+
+% jarkom
+jadwal_kelas(k_024, selasa, 10, 0, 11, 40).
+jadwal_kelas(k_024, kamis, 10, 0, 11, 40).
+
+% kalkulus 1
+jadwal_kelas(k_025, senin, 13, 0, 13, 50).
+jadwal_kelas(k_025, kamis, 16, 0, 17, 40).
+jadwal_kelas(k_025, jumat, 8, 0, 9, 40).
+
+% kalkulus 2
+jadwal_kelas(k_026, senin, 14, 0, 14, 50).
+jadwal_kelas(k_026, selasa, 10, 0, 11, 40).
+jadwal_kelas(k_026, kamis, 16, 0, 17, 40).
+jadwal_kelas(k_027, senin, 14, 0, 14, 50).
+jadwal_kelas(k_027, selasa, 10, 0, 11, 40).
+jadwal_kelas(k_027, kamis, 16, 0, 17, 40).
+jadwal_kelas(k_028, senin, 13, 0, 13, 50).
+jadwal_kelas(k_028, selasa, 8, 0, 9, 40).
+jadwal_kelas(k_028, kamis, 16, 0, 17, 40).
+
+% kp
+jadwal_kelas(k_029, kamis, 10, 0, 12, 0).
+
+% komas
+jadwal_kelas(k_030, selasa, 8, 0, 10, 30).
+jadwal_kelas(k_031, selasa, 13, 0, 15, 30).
+jadwal_kelas(k_032, selasa, 8, 0, 10, 30).
+
+% Kriptografi
+jadwal_kelas(k_033, senin, 13, 0, 14, 40).
+jadwal_kelas(k_033, kamis, 13, 0, 14, 40).
+
+% LAW
+jadwal_kelas(k_034, selasa, 10, 0, 11, 40).
+jadwal_kelas(k_034, kamis, 11, 0, 11, 50).
+jadwal_kelas(k_035, selasa, 10, 0, 11, 40).
+jadwal_kelas(k_035, kamis, 11, 0, 11, 50).
+
+% logkom
+jadwal_kelas(k_036, senin, 10, 0, 11, 15).
+jadwal_kelas(k_036, rabu, 10, 0, 11, 15).
+
+% matdis 2
+jadwal_kelas(k_037, kamis, 8, 0, 10, 30).
+jadwal_kelas(k_038, kamis, 8, 0, 10, 30).
+jadwal_kelas(k_039, kamis, 8, 0, 10, 30).
+jadwal_kelas(k_040, kamis, 13, 0, 15, 30).
+jadwal_kelas(k_041, kamis, 13, 0, 15, 30).
+jadwal_kelas(k_042, kamis, 13, 0, 15, 30).
+
+% matdis 1
+jadwal_kelas(k_043, selasa, 13, 0, 14, 40).
+jadwal_kelas(k_043, jumat, 10, 0, 10, 50).
+
+% mppi
+jadwal_kelas(k_044, jumat, 8, 0, 10, 30).
+jadwal_kelas(k_045, jumat, 8, 0, 10, 30).
+jadwal_kelas(k_046, jumat, 8, 0, 10, 30).
+jadwal_kelas(k_047, jumat, 8, 0, 10, 30).
+jadwal_kelas(k_048, jumat, 8, 0, 10, 30).
+
+% basket
+jadwal_kelas(k_050, jumat, 17, 0, 17, 50).
+
+% voli
+jadwal_kelas(k_051, selasa, 17, 0, 17, 50).
+
+% Futsal
+jadwal_kelas(k_052, rabu, 17, 0, 17, 50).
+
+% Sepakbola
+jadwal_kelas(k_053, kamis, 17, 0, 17, 50).
+
+% Tenis
+jadwal_kelas(k_054, rabu, 17, 0, 17, 50).
+
+% tenis Meja
+jadwal_kelas(k_055, kamis, 17, 0, 17, 50).
+
+% mpkt a
+jadwal_kelas(k_055, jumat, 13, 0, 15, 30).
+jadwal_kelas(k_056, jumat, 13, 0, 15, 30).
+jadwal_kelas(k_057, jumat, 13, 0, 15, 30).
+jadwal_kelas(k_058, jumat, 13, 0, 15, 30).
+jadwal_kelas(k_059, jumat, 13, 0, 15, 30).
+jadwal_kelas(k_060, jumat, 13, 0, 15, 30).
+
+% pembelajaran mesin
+jadwal_kelas(k_061, rabu, 14, 0, 16, 30).
+
+% pemrograman kompetitif
+jadwal_kelas(k_062, rabu, 14, 0, 16, 30).
+
+% pemrograman lanjut
+jadwal_kelas(k_063, senin, 8, 0, 9, 40).
+jadwal_kelas(k_063, rabu, 8, 0, 9, 40).
+jadwal_kelas(k_064, senin, 10, 0, 11, 40).
+jadwal_kelas(k_064, rabu, 10, 0, 11, 40).
+jadwal_kelas(k_065, senin, 8, 0, 9, 40).
+jadwal_kelas(k_065, rabu, 8, 0, 9, 40).
+
+% pemrograman logika
+jadwal_kelas(k_066, senin, 8, 0, 9, 40).
+jadwal_kelas(k_066, rabu, 8, 0, 9, 40).
+
+% pemrograman paralel
+jadwal_kelas(k_067, senin, 8, 0, 9, 40).
+jadwal_kelas(k_067, rabu, 8, 0, 9, 40).
+
+% pok
+jadwal_kelas(k_068, selasa, 8, 0, 9, 40).
+jadwal_kelas(k_068, kamis, 11, 0, 11, 50).
+jadwal_kelas(k_068, jumat, 16, 0, 17, 40).
+jadwal_kelas(k_069, selasa, 10, 0, 11, 40).
+jadwal_kelas(k_069, kamis, 11, 0, 11, 50).
+jadwal_kelas(k_069, jumat, 16, 0, 17, 40).
+jadwal_kelas(k_070, selasa, 8, 0, 9, 40).
+jadwal_kelas(k_070, kamis, 11, 0, 11, 50).
+jadwal_kelas(k_070, jumat, 16, 0, 17, 40).
+
+% psd
+jadwal_kelas(k_071, senin, 14, 0, 15, 40).
+jadwal_kelas(k_071, selasa, 15, 0, 15, 50).
+jadwal_kelas(k_071, rabu, 14, 0, 15, 40).
+
+% nlp
+jadwal_kelas(k_072, selasa, 8, 0, 9, 40).
+jadwal_kelas(k_072, kamis, 10, 0, 10, 50).
+
+% ppw
+jadwal_kelas(k_073, senin, 10, 0, 11, 40).
+jadwal_kelas(k_073, rabu, 10, 0, 10, 50).
+
+% persamaan Diferensial
+jadwal_kelas(k_074, jumat, 8, 0, 10, 30).
+
+% ppl
+jadwal_kelas(k_075, senin, 13, 0, 16, 30).
+jadwal_kelas(k_075, selasa, 13, 0, 16, 30).
+jadwal_kelas(k_076, senin, 13, 0, 16, 30).
+jadwal_kelas(k_076, selasa, 13, 0, 16, 30).
+jadwal_kelas(k_077, senin, 13, 0, 16, 30).
+jadwal_kelas(k_077, selasa, 13, 0, 16, 30).
+jadwal_kelas(k_078, senin, 13, 0, 16, 30).
+jadwal_kelas(k_078, selasa, 13, 0, 16, 30).
+
+% robotika
+jadwal_kelas(k_079, senin, 16, 0, 17, 30).
+jadwal_kelas(k_079, rabu, 16, 0, 17, 40).
+
+% sains data
+jadwal_kelas(k_080, kamis, 13, 0, 14, 40).
+jadwal_kelas(k_080, jumat, 14, 0, 14, 50).
+jadwal_kelas(k_081, kamis, 15, 0, 16, 40).
+jadwal_kelas(k_081, jumat, 15, 0, 15, 50).
+jadwal_kelas(k_082, kamis, 13, 0, 14, 40).
+jadwal_kelas(k_082, jumat, 14, 0, 14, 50).
+
+% SC
+jadwal_kelas(k_083, selasa, 8, 0, 9, 40).
+jadwal_kelas(k_083, kamis, 8, 0, 9, 40).
+
+% sister
+jadwal_kelas(k_084, jumat, 8, 0, 10, 30).
+jadwal_kelas(k_085, jumat, 13, 0, 15, 30).
+jadwal_kelas(k_086, jumat, 8, 0, 10, 30).
+jadwal_kelas(k_087, jumat, 13, 0, 15, 30).
+jadwal_kelas(k_088, jumat, 13, 0, 15, 30).
+
+% sistem operasi
+jadwal_kelas(k_089, senin, 10, 0, 11, 40).
+jadwal_kelas(k_089, rabu, 10, 0, 11, 40).
+jadwal_kelas(k_090, senin, 15, 0, 16, 40).
+jadwal_kelas(k_090, rabu, 15, 0, 16, 40).
+jadwal_kelas(k_091, selasa, 8, 0, 9, 40).
+jadwal_kelas(k_091, kamis, 8, 0, 9, 40).
+
+% Sistem operasi untuk Sistem informasi
+jadwal_kelas(k_092, selasa, 10, 0, 11, 40).
+jadwal_kelas(k_092, kamis, 10, 0, 10, 50).
+jadwal_kelas(k_093, selasa, 10, 0, 11, 40).
+jadwal_kelas(k_093, kamis, 10, 0, 10, 50).
+jadwal_kelas(k_094, selasa, 10, 0, 11, 40).
+jadwal_kelas(k_094, kamis, 10, 0, 10, 50).
+
+% statprob
+jadwal_kelas(k_095, senin, 13, 0, 14, 40).
+jadwal_kelas(k_095, rabu, 14, 0, 14, 50).
+jadwal_kelas(k_096, senin, 13, 0, 14, 40).
+jadwal_kelas(k_096, rabu, 14, 0, 14, 50).
+jadwal_kelas(k_097, senin, 13, 0, 14, 40).
+jadwal_kelas(k_097, rabu, 14, 0, 14, 50).
+jadwal_kelas(k_098, senin, 15, 0, 16, 40).
+jadwal_kelas(k_098, rabu, 15, 0, 15, 50).
+jadwal_kelas(k_099, senin, 15, 0, 16, 40).
+jadwal_kelas(k_099, rabu, 15, 0, 15, 50).
+jadwal_kelas(k_100, senin, 15, 0, 16, 40).
+jadwal_kelas(k_100, rabu, 15, 0, 15, 50).
+
+% sda
+jadwal_kelas(k_101, senin, 8, 0, 9, 40).
+jadwal_kelas(k_101, rabu, 8, 0, 9, 40).
+jadwal_kelas(k_102, senin, 8, 0, 9, 40).
+jadwal_kelas(k_102, rabu, 8, 0, 9, 40).
+
+% tba
+jadwal_kelas(k_103, selasa, 13, 0, 14, 40).
+jadwal_kelas(k_103, kamis, 13, 0, 14, 40).
+jadwal_kelas(k_104, selasa, 15, 0, 16, 40).
+jadwal_kelas(k_104, kamis, 15, 0, 16, 40).
+jadwal_kelas(k_105, selasa, 13, 0, 14, 40).
+jadwal_kelas(k_105, kamis, 13, 0, 14, 40).

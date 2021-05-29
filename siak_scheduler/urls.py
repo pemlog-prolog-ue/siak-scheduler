@@ -17,8 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 from mainpage.views import index
+from mainpage.views import query
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index),
+    path('query/', query)
 ]

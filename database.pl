@@ -76,6 +76,7 @@ mata_kuliah(mk_42, 'Sistem Operasi untuk Sistem Informasi').
 mata_kuliah(mk_43, 'Statistika dan Probabilitas').
 mata_kuliah(mk_44, 'Struktur Data dan Algoritma').
 mata_kuliah(mk_45, 'Teori Bahasa dan Automata').
+mata_kuliah(mk_46, 'Basis Data Lanjut').
 
 % prasyarat/2
 % /1 :ID mata kuliah
@@ -105,6 +106,7 @@ prasyarat(mk_40, [mk_34]).
 prasyarat(mk_41, [mk_31]).
 prasyarat(mk_43, [mk_09, mk_17]).
 prasyarat(mk_45, [mk_16, mk_17]).
+prasyarat(mk_46, [mk_03]).
 
 % kelas/3
 % /1 = ID kelas
@@ -306,6 +308,9 @@ kelas(k_103,mk_45,'A').
 kelas(k_104,mk_45,'B').
 kelas(k_105,mk_45,'C').
 
+% banjut
+kelas(k_106,mk_46,'-').
+
 % dosen/2
 % /1 = ID dosen
 % /2 = nama dosen
@@ -380,6 +385,7 @@ dosen(d_67, 'Allison Willis, S.Kom., M.Kom.').
 dosen(d_68, 'Casey Moore, S.Kom., M.Sc., M.Kom.').
 dosen(d_69, 'Lillie Hines, S.Kom., M.Kom.').
 dosen(d_70, 'Ir. Janet Stokes, M.Sc., Ph.D.').
+dosen(d_71, 'Ir. Anto Ilija, M.Sc., Ph.D.').
 
 % dosen_kelas/2
 % /1 = ID kelas
@@ -602,6 +608,9 @@ dosen_kelas(k_104,  d_69).
 dosen_kelas(k_104,  d_70).
 dosen_kelas(k_105,  d_70).
 
+% banjut
+dosen_kelas(k_106,  d_71).
+
 % kapasitas_kelas/3
 % /1 = ID kelas
 % /2 = kapasitas total
@@ -801,6 +810,9 @@ kapasitas_kelas(k_102,60,0).
 kapasitas_kelas(k_103,69,0).
 kapasitas_kelas(k_104,65,0).
 kapasitas_kelas(k_105,68,0).
+
+% banjut
+kapasitas_kelas(k_106,50,2).
 
 % jadwal_kelas/6
 % /1 = ID kelas
@@ -1091,11 +1103,14 @@ jadwal_kelas(k_104, kamis, 15, 0, 16, 40).
 jadwal_kelas(k_105, selasa, 13, 0, 14, 40).
 jadwal_kelas(k_105, kamis, 13, 0, 14, 40).
 
+% banjut
+jadwal_kelas(k_106, senin, 13, 0, 15, 30).
+
 % jadwal_mahasiswa/2
 % /1 = ID mahasiswa
 % /2 = list kelas yang dapat diambil
 
 jadwal_mahasiswa(m_01, [k_031, k_035, k_036, k_066]).
-jadwal_mahasiswa(m_02, [k_031, k_034, k_036, k_066]).
+jadwal_mahasiswa(m_02, [k_031, k_034, k_036, k_066, k_106]).
 jadwal_mahasiswa(m_03, [k_032, k_036, k_066, k_075, k_080, k_085]).
-jadwal_mahasiswa(m_02, [k_031, k_024, k_036, k_066]).
+jadwal_mahasiswa(m_02, [k_031, k_024, k_036, k_066, k_106]).

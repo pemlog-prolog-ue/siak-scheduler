@@ -2,8 +2,20 @@
 
 %cari_jadwal(m_10, 'Bunga Amalia', 20, [d_01, d_02], [m_01, m_02], [mk_01, mk_02], [k_001, k_002, k_003, k_004, k_005])
 
-cari_jadwal(IDMahasiswa, NamaMahasiswa, SKS, PrefDosen, PrefTeman, PrefMataKuliah).
+cari_jadwal(IDMahasiswa, NamaMahasiswa, SKS, PrefDosen, PrefTeman, PrefMataKuliah, HasilJadwal).
     % \+bentrok(PrefMataKuliah).
+
+cek_list_kelas_tidak_bentrok([_]).
+
+cek_list_kelas_tidak_bentrok([KelasA | KelasSisa]) :-
+    cek_1_kelas_tidak_bentrok_dengan_list_kelas(KelasA, KelasSisa),
+    cek_list_kelas_tidak_bentrok(KelasSisa).
+
+cek_1_kelas_tidak_bentrok_dengan_list_kelas(_, []).
+
+cek_1_kelas_tidak_bentrok_dengan_list_kelas(KelasA, [KelasB | KelasSisa]) :-
+    tidak_bentrok_kelas(KelasA, KelasB),
+    cek_1_kelas_tidak_bentrok_dengan_list_kelas(KelasA, KelasSisa).
 
 tidak_bentrok_kelas(KelasA, KelasB):-
     % Cek kelas dan jadwalnya
@@ -16,7 +28,7 @@ tidak_bentrok_kelas(KelasA, KelasB):-
     bagof([HariKelasB, JamMulaiKelasB, MenitMulaiKelasB, JamSelesaiKelasB, MenitSelesaiKelasB],
         jadwal_kelas(KelasB, HariKelasB, JamMulaiKelasB, MenitMulaiKelasB, JamSelesaiKelasB, MenitSelesaiKelasB),
     BagJadwalB),
-    
+    % Cek kelas tidak bentrok untuk seluruh jadwal
     tidak_bentrok_jadwal(BagJadwalA, BagJadwalB).
 
 tidak_bentrok_jadwal([], _) :- !.

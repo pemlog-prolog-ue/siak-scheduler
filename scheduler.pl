@@ -1,8 +1,8 @@
 :- use_module(database).
 
-%cari_jadwal(m_10, 'Bunga Amalia', 20, [d_01, d_02], [m_01, m_02], [mk_01, mk_02], [k_001, k_002, k_003, k_004, k_005])
+% cari_jadwal(m_10, 'Bunga Amalia', 20, [d_01, d_02], [m_01, m_02], [mk_01, mk_02], [mk_03, mk_04], [k_001, k_002, k_003, k_004, k_005])
 
-cari_jadwal(IDMahasiswa, NamaMahasiswa, SKS, PrefDosen, PrefTeman, PrefMataKuliah, HasilJadwal).
+cari_jadwal(IDMahasiswa, NamaMahasiswa, SKS, PrefDosen, PrefTeman, PrefMataKuliah, ListMataKuliahSudahLulus, HasilJadwal).
     % \+bentrok(PrefMataKuliah).
 
 cek_list_kelas_tidak_bentrok([_]).
@@ -61,6 +61,10 @@ konversi_jadwal(JamMulai, MenitMulai, JamSelesai, MenitSelesai, TotalMenitMulai,
     TotalMenitMulai is JamMulai*60+MenitMulai,
     TotalMenitSelesai is JamSelesai*60+MenitSelesai.
 
-% jadwal_mahasiswa(IDMahasiswa, ListKelas):-
-%     mahasiswa(IDMahasiswa, NamaMahasiswa),
-%     cari_jadwal(IDMahasiswa, NamaMahasiswa, )
+memenuhi_prasyarat(MataKuliah, ListMataKuliahSudahLulus) :-
+    prasyarat(MataKuliah, ListPrasyaratMataKuliah),
+    subset(ListPrasyaratMataKuliah, ListMataKuliahSudahLulus).
+
+mata_kuliah_bisa_diambil(ListMataKuliahSudahLulus, ListMataKuliahBisaDiambil) :-
+    bagof(IDMataKuliah, (memenuhi_prasyarat(IDMataKuliah, ListMataKuliahSudahLulus), 
+    \+member(IDMataKuliah, ListMataKuliahSudahLulus)), ListMataKuliahBisaDiambil).

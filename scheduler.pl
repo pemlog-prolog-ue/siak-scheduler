@@ -2,17 +2,15 @@
 
 % cari_jadwal(m_10, 'Bunga Amalia', 20, [d_01, d_02], [m_01, m_02], [mk_01, mk_02], [mk_03, mk_04], [k_001, k_002, k_003, k_004, k_005])
 
-cari_jadwal(IDMahasiswa, NamaMahasiswa, SKS, PrefDosen, PrefTeman, PrefMataKuliah, ListMataKuliahSudahLulus, HasilJadwal).
+% cari_jadwal(IDMahasiswa, NamaMahasiswa, SKS, PrefDosen, PrefTeman, PrefMataKuliah, ListMataKuliahSudahLulus, HasilJadwal).
     % \+bentrok(PrefMataKuliah).
 
 cek_list_kelas_tidak_bentrok([_]).
-
 cek_list_kelas_tidak_bentrok([KelasA | KelasSisa]) :-
     cek_1_kelas_tidak_bentrok_dengan_list_kelas(KelasA, KelasSisa),
     cek_list_kelas_tidak_bentrok(KelasSisa).
 
 cek_1_kelas_tidak_bentrok_dengan_list_kelas(_, []).
-
 cek_1_kelas_tidak_bentrok_dengan_list_kelas(KelasA, [KelasB | KelasSisa]) :-
     tidak_bentrok_kelas(KelasA, KelasB),
     cek_1_kelas_tidak_bentrok_dengan_list_kelas(KelasA, KelasSisa).
@@ -68,3 +66,9 @@ memenuhi_prasyarat(MataKuliah, ListMataKuliahSudahLulus) :-
 mata_kuliah_bisa_diambil(ListMataKuliahSudahLulus, ListMataKuliahBisaDiambil) :-
     bagof(IDMataKuliah, (memenuhi_prasyarat(IDMataKuliah, ListMataKuliahSudahLulus), 
     \+member(IDMataKuliah, ListMataKuliahSudahLulus)), ListMataKuliahBisaDiambil).
+
+kelas_bisa_diambil([], []).
+kelas_bisa_diambil([MataKuliahBisaDiambilA | MataKuliahBisaDiambilSisa], ListKelasBisaDiambil) :-
+    bagof(IDKelas, NamaKelas^(kelas(IDKelas, MataKuliahBisaDiambilA, NamaKelas)), ListKelasBisaDiambilA),
+    append(ListKelasBisaDiambilA, ListKelasBisaDiambilSisa, ListKelasBisaDiambil),
+    kelas_bisa_diambil(MataKuliahBisaDiambilSisa, ListKelasBisaDiambilSisa).

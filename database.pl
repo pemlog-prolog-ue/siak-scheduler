@@ -1,6 +1,6 @@
 % Database SIAK Scheduler
 
-:- module(database, [mahasiswa/2, mata_kuliah/2, prasyarat/2, kelas/3, dosen/2, dosen_kelas/2, kapasitas_kelas/3, jadwal_kelas/6, jadwal_mahasiswa/2]).
+:- module(database, [mahasiswa/2, mata_kuliah/3, prasyarat/2, kelas/3, dosen/2, dosen_kelas/2, kapasitas_kelas/3, jadwal_kelas/6, jadwal_mahasiswa/2]).
 
 % mahasiswa/2
 % /1 : ID mahasiswa

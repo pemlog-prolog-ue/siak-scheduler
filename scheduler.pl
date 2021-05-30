@@ -34,11 +34,9 @@ cek_1_jadwal([HariKelasA, JamMulaiKelasA, MenitMulaiKelasA, JamSelesaiKelasA, Me
     HariKelasA == HariKelasB , !,
 
     % Konversi jadwal ke menit
-    JamMenitMulaiKelasA is JamMulaiKelasA*60+MenitMulaiKelasA,
-    JamMenitMulaiKelasB is JamMulaiKelasB*60+MenitMulaiKelasB,
-    JamMenitSelesaiKelasA is JamSelesaiKelasA*60+MenitSelesaiKelasA,
-    JamMenitSelesaiKelasB is JamSelesaiKelasB*60+MenitSelesaiKelasB,
-    (JamMenitSelesaiKelasA < JamMenitMulaiKelasB ; JamMenitSelesaiKelasB < JamMenitMulaiKelasA),
+    konversi_jadwal(JamMulaiKelasA, MenitMulaiKelasA, JamSelesaiKelasA, MenitSelesaiKelasA, TotalMenitMulaiKelasA, TotalMenitSelesaiKelasA),
+    konversi_jadwal(JamMulaiKelasB, MenitMulaiKelasB, JamSelesaiKelasB, MenitSelesaiKelasB, TotalMenitMulaiKelasB, TotalMenitSelesaiKelasB),
+    (TotalMenitSelesaiKelasA < TotalMenitMulaiKelasB ; TotalMenitSelesaiKelasB < TotalMenitMulaiKelasA),
     
     % Rekursif cek ke semua JadwalB
     cek_1_jadwal([HariKelasA, JamMulaiKelasA, MenitMulaiKelasA, JamSelesaiKelasA, MenitSelesaiKelasA],
@@ -47,6 +45,9 @@ cek_1_jadwal([HariKelasA, JamMulaiKelasA, MenitMulaiKelasA, JamSelesaiKelasA, Me
 cek_1_jadwal(JadwalA, [_ | JadwalBSisa]):-
     cek_1_jadwal(JadwalA, JadwalBSisa).
 
+konversi_jadwal(JamMulai, MenitMulai, JamSelesai, MenitSelesai, TotalMenitMulai, TotalMenitSelesai) :-
+    TotalMenitMulai is JamMulai*60+MenitMulai,
+    TotalMenitSelesai is JamSelesai*60+MenitSelesai.
 
 % jadwal_mahasiswa(IDMahasiswa, ListKelas):-
 %     mahasiswa(IDMahasiswa, NamaMahasiswa),

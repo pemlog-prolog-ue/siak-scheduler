@@ -83,29 +83,50 @@ mata_kuliah(mk_46, 'Basis Data Lanjut', 3).
 % /1 :ID mata kuliah
 % /2 : list prasyarat mata kuliah
 
+prasyarat(mk_01, []).
 prasyarat(mk_02, [mk_01, mk_10]).
 prasyarat(mk_03, [mk_05]).
+prasyarat(mk_04, []).
 prasyarat(mk_05, [mk_04]).
 prasyarat(mk_06, [mk_44]).
 prasyarat(mk_07, [mk_01, mk_44]).
 prasyarat(mk_08, [mk_41, mk_04]).
+prasyarat(mk_09, []).
 prasyarat(mk_10, [mk_09]).
+prasyarat(mk_11, []).
+prasyarat(mk_12, []).
 prasyarat(mk_13, [mk_08, mk_43, mk_17, mk_16]).
 prasyarat(mk_14, [mk_08, mk_34]).
 prasyarat(mk_15, [mk_39]).
+prasyarat(mk_16, []).
+prasyarat(mk_17, []).
+prasyarat(mk_18, []).
+prasyarat(mk_19, []).
+prasyarat(mk_20, []).
+prasyarat(mk_21, []).
+prasyarat(mk_22, []).
+prasyarat(mk_23, []).
+prasyarat(mk_24, []).
+prasyarat(mk_25, []).
 prasyarat(mk_26, [mk_39]).
+prasyarat(mk_27, []).
 prasyarat(mk_28, [mk_05]).
 prasyarat(mk_29, [mk_04, mk_17]).
 prasyarat(mk_30, [mk_41, mk_01, mk_10, mk_05]).
 prasyarat(mk_31, [mk_32]).
+prasyarat(mk_32, []).
 prasyarat(mk_33, [mk_45, mk_39]).
 prasyarat(mk_34, [mk_04]).
 prasyarat(mk_35, [mk_01, mk_10]).
+prasyarat(mk_36, []).
 prasyarat(mk_37, [mk_31, mk_39]).
 prasyarat(mk_38, [mk_01, mk_43]).
+prasyarat(mk_39, []).
 prasyarat(mk_40, [mk_34]).
 prasyarat(mk_41, [mk_31]).
+prasyarat(mk_42, []).
 prasyarat(mk_43, [mk_09, mk_17]).
+prasyarat(mk_44, []).
 prasyarat(mk_45, [mk_16, mk_17]).
 prasyarat(mk_46, [mk_03]).
 

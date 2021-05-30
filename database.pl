@@ -1,7 +1,9 @@
 % Database SIAK Scheduler
 
+module(database, [mahasiswa/2, mata_kuliah/2, prasyarat/2, kelas/3, dosen/2, dosen_kelas/2, kapasitas_kelas/3, jadwal_kelas/6, jadwal_mahasiswa/2]).
+
 % mahasiswa/2
-% /1 : id mahasiswa
+% /1 : ID mahasiswa
 % /2 : nama mahasiswa
 
 mahasiswa(m_01, 'Frank Dominguez').
@@ -26,7 +28,7 @@ mahasiswa(m_19, 'Elizabeth Romero').
 mahasiswa(m_20, 'Helen Rhodes').
 
 % matakuliah/2
-% /1 : id mata kuliah
+% /1 : ID mata kuliah
 % /2 : nama mata kuliah
 
 mata_kuliah(mk_01, 'Aljabar Linier').
@@ -76,7 +78,7 @@ mata_kuliah(mk_44, 'Struktur Data dan Algoritma').
 mata_kuliah(mk_45, 'Teori Bahasa dan Automata').
 
 % prasyarat/2
-% /1 : id mata kuliah
+% /1 :ID mata kuliah
 % /2 : list prasyarat mata kuliah
 
 prasyarat(mk_02, [mk_01, mk_10]).
@@ -105,7 +107,7 @@ prasyarat(mk_43, [mk_09, mk_17]).
 prasyarat(mk_45, [mk_16, mk_17]).
 
 % kelas/3
-% /1 = id kelas
+% /1 = ID kelas
 % /2 = mata kuliah
 % /3 = nama kelas
 
@@ -305,7 +307,7 @@ kelas(k_104,mk_45,'B').
 kelas(k_105,mk_45,'C').
 
 % dosen/2
-% /1 = id dosen
+% /1 = ID dosen
 % /2 = nama dosen
 
 dosen(d_01, 'Dr. Dra. Saul James, M.Sc.').
@@ -380,8 +382,8 @@ dosen(d_69, 'Lillie Hines, S.Kom., M.Kom.').
 dosen(d_70, 'Ir. Janet Stokes, M.Sc., Ph.D.').
 
 % dosen_kelas/2
-% /1 = id kelas
-% /2 = id dosen
+% /1 = ID kelas
+% /2 = ID dosen
 
 % alin
 dosen_kelas(k_001,  d_01).
@@ -600,8 +602,7 @@ dosen_kelas(k_104,  d_69).
 dosen_kelas(k_104,  d_70).
 dosen_kelas(k_105,  d_70).
 
-% kapasitas_kelas/2
-% kapasitas mahasiswa tiap kelas
+% kapasitas_kelas/3
 % /1 = ID kelas
 % /2 = kapasitas total
 % /3 = kapasitas yang sudah terisi
@@ -644,7 +645,7 @@ kapasitas_kelas(k_022,60,0).
 kapasitas_kelas(k_023,50,0).
 
 % jarkom
-kapasitas_kelas(k_024,55,0).
+kapasitas_kelas(k_024,55,1).
 
 % kalkulus 1
 kapasitas_kelas(k_025,71,0).
@@ -659,18 +660,18 @@ kapasitas_kelas(k_029,50,0).
 
 % komas
 kapasitas_kelas(k_030,60,0).
-kapasitas_kelas(k_031,61,0).
-kapasitas_kelas(k_032,60,0).
+kapasitas_kelas(k_031,61,3).
+kapasitas_kelas(k_032,60,1).
 
 % Kriptografi
 kapasitas_kelas(k_033,50,0).
 
 % LAW
-kapasitas_kelas(k_034,60,0).
-kapasitas_kelas(k_035,60,0).
+kapasitas_kelas(k_034,60,1).
+kapasitas_kelas(k_035,60,1).
 
 % logkom
-kapasitas_kelas(k_036,63,0).
+kapasitas_kelas(k_036,63,4).
 
 % matdis 2
 kapasitas_kelas(k_037,69,0).
@@ -728,7 +729,7 @@ kapasitas_kelas(k_064,75,0).
 kapasitas_kelas(k_065,75,0).
 
 % pemrograman logika
-kapasitas_kelas(k_066,50,0).
+kapasitas_kelas(k_066,50,4).
 
 % pemrograman paralel
 kapasitas_kelas(k_067,50,0).
@@ -751,7 +752,7 @@ kapasitas_kelas(k_073,60,0).
 kapasitas_kelas(k_074,50,0).
 
 % ppl
-kapasitas_kelas(k_075,50,0).
+kapasitas_kelas(k_075,50,1).
 kapasitas_kelas(k_076,50,0).
 kapasitas_kelas(k_077,50,0).
 kapasitas_kelas(k_078,50,0).
@@ -760,7 +761,7 @@ kapasitas_kelas(k_078,50,0).
 kapasitas_kelas(k_079,50,0).
 
 % sains data
-kapasitas_kelas(k_080,60,0).
+kapasitas_kelas(k_080,60,1).
 kapasitas_kelas(k_081,60,0).
 kapasitas_kelas(k_082,60,0).
 
@@ -769,7 +770,7 @@ kapasitas_kelas(k_083,50,0).
 
 % sister
 kapasitas_kelas(k_084,71,0).
-kapasitas_kelas(k_085,69,0).
+kapasitas_kelas(k_085,69,1).
 kapasitas_kelas(k_086,70,0).
 kapasitas_kelas(k_087,68,0).
 kapasitas_kelas(k_088,71,0).
@@ -801,8 +802,8 @@ kapasitas_kelas(k_103,69,0).
 kapasitas_kelas(k_104,65,0).
 kapasitas_kelas(k_105,68,0).
 
-% jadwal_kelas/4
-% /1 = id kelas
+% jadwal_kelas/6
+% /1 = ID kelas
 % /2 = hari
 % /3 = jam mulai
 % /4 = menit mulai
@@ -1089,3 +1090,12 @@ jadwal_kelas(k_104, selasa, 15, 0, 16, 40).
 jadwal_kelas(k_104, kamis, 15, 0, 16, 40).
 jadwal_kelas(k_105, selasa, 13, 0, 14, 40).
 jadwal_kelas(k_105, kamis, 13, 0, 14, 40).
+
+% jadwal_mahasiswa/2
+% /1 = ID mahasiswa
+% /2 = list kelas yang dapat diambil
+
+jadwal_mahasiswa(m_01, [k_031, k_035, k_036, k_066]).
+jadwal_mahasiswa(m_02, [k_031, k_034, k_036, k_066]).
+jadwal_mahasiswa(m_03, [k_032, k_036, k_066, k_075, k_080, k_085]).
+jadwal_mahasiswa(m_02, [k_031, k_024, k_036, k_066]).

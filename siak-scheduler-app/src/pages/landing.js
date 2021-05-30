@@ -1,5 +1,6 @@
 import React from "react";
 import "./landing.css";
+import {PROGRAM} from "./database"
 
 export default class Landing extends React.Component {
   constructor() {
@@ -27,22 +28,10 @@ export default class Landing extends React.Component {
   }
 
   submitHandler = (e) => {
-    var data = {
-      "preferensi_dosen": this.state.preferensi_dosen,
-      "preferensi_teman": this.state.preferensi_teman,
-      "preferensi_minat": this.state.preferensi_minat
-    }
     e.preventDefault();
     var pl = require("tau-prolog")
     var session = pl.create(1000);
-    const program = `
-      dosen(d_01, 'Dr. Dra. Saul James, M.Sc.').
-      dosen(d_02, 'Dr.Eng. Eleanor Bell, S.Kom., M.Eng.').
-      dosen(d_03, 'Dr. Jon Ramsey, S.Kom., M.Kom.').
-      dosen(d_04, 'Prof. Drs. Emilio Washington, M.Sc., Ph.D.').
-      dosen(d_05, 'Paul Wood, S.Kom., M.Sc.').
-    `;
-    
+    const program = PROGRAM;
     const query = "dosen(" + this.state.preferensi_dosen + ",R).";
 
     const show = ans => {

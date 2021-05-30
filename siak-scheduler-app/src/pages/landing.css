@@ -1,0 +1,19 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.field-container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.field-container input {
+  margin-bottom: 6%;
+}
+
+.field-container label {
+  margin-bottom: 4%;
+}

@@ -14,33 +14,46 @@ export default class Landing extends React.Component {
     }
   }
 
-  testStart = () => {
+  dosenHandler = (e) => {
+    this.setState({preferensi_dosen: e.target.value});
+  }
+
+  temanHandler = (e) => {
+    this.setState({preferensi_teman: e.target.value});
+  }
+
+  minatHandler = (e) => {
+    this.setState({preferensi_minat: e.target.value});
+  }
+
+  submitHandler = (e) => {
+    var data = {
+      "preferensi_dosen": this.state.preferensi_dosen,
+      "preferensi_teman": this.state.preferensi_teman,
+      "preferensi_minat": this.state.preferensi_minat
+    }
+    e.preventDefault();
     var pl = require("tau-prolog")
     var session = pl.create(1000);
     const program = `
-      kelas(k_014,mk_05,'A').
-      kelas(k_015,mk_05,'B').
-      kelas(k_016,mk_05,'C').
-      kelas(k_017,mk_05,'D').
-      kelas(k_018,mk_05,'E').
-      kelas(k_019,mk_05,'F').
-      kelas(k_020,mk_05,'G').
+      dosen(d_01, 'Dr. Dra. Saul James, M.Sc.').
+      dosen(d_02, 'Dr.Eng. Eleanor Bell, S.Kom., M.Eng.').
+      dosen(d_03, 'Dr. Jon Ramsey, S.Kom., M.Kom.').
+      dosen(d_04, 'Prof. Drs. Emilio Washington, M.Sc., Ph.D.').
+      dosen(d_05, 'Paul Wood, S.Kom., M.Sc.').
     `;
-    const query = `
-      kelas(X, mk_05,Y).
-    `
+    
+    const query = "dosen(" + this.state.preferensi_dosen + ",R).";
+
     const show = ans => {
       var jangke = session.format_answer(ans);
-      this.setState({
-        result: jangke
-      });
-      // console.log(this.state.result);
-      // console.log(this.state.num);
-      this.setState({
-        num: this.state.num + 1
-      });
-      this.state.list_result.push(this.state.result);
+      var substr = jangke.substring(0,1);
+      if (substr === "R") {
+        this.setState({result: jangke});
+      }
+      console.log(jangke);
     }
+
     session.consult(program, {
       success: function() {
         session.query(query, {
@@ -57,33 +70,31 @@ export default class Landing extends React.Component {
   }
   
   render() {
-    console.log("LAST")
-    console.log(this.state.list_result)
     return (
-      <div class="main-container">
+      <div className="main-container">
         <h2>
-          hello world
+          Siak Scheduler
         </h2>
-        <form class="form-container">
-          <div class="field-container">
+        <form className="form-container" onSubmit={this.submitHandler}>
+          <div className="field-container">
             <label>Preferensi dosen</label>
-            <input type="text" value={this.state.preferensi_dosen} />
+            <input type="text" value={this.state.preferensi_dosen}
+            onChange={this.dosenHandler}/>
           </div>
-          <div class="field-container">
+          <div className="field-container">
             <label>Preferensi teman</label>
-            <input type="text" value={this.state.preferensi_teman} />
+            <input type="text" value={this.state.preferensi_teman}
+            onChange={this.temanHandler}/>
           </div>
-          <div class="field-container">
+          <div className="field-container">
             <label>Preferensi minat</label>
-            <input type="text" value={this.state.preferensi_minat} />
+            <input type="text" value={this.state.preferensi_minat}
+            onChange={this.minatHandler}/>
           </div>
-          <input type="submit" value="Submit" />
+          <button type="submit" >Submit</button>
         </form>
-        <button onClick={this.testStart}>
-          Press me
-        </button>
         <p>
-          {this.state.list_result}
+          {this.state.result}
         </p>
       </div>
     );

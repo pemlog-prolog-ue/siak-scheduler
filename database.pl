@@ -276,11 +276,11 @@ kelas(k_082,mk_38,'C').
 kelas(k_083,mk_39,'-').
 
 % sister
-kelas(k_084,mk_40,'A').
-kelas(k_085,mk_40,'B').
-kelas(k_086,mk_40,'C').
-kelas(k_087,mk_40,'D').
-kelas(k_088,mk_40,'E').
+kelas(k_084,mk_40,'B').
+kelas(k_085,mk_40,'C').
+kelas(k_086,mk_40,'D').
+kelas(k_087,mk_40,'E').
+kelas(k_088,mk_40,'F').
 
 % sistem operasi
 kelas(k_089,mk_41,'A').
@@ -1113,5 +1113,5 @@ jadwal_kelas(k_106, senin, 13, 0, 15, 30).
 
 jadwal_mahasiswa(m_01, [k_031, k_035, k_036, k_066]).
 jadwal_mahasiswa(m_02, [k_031, k_034, k_036, k_066, k_106]).
-jadwal_mahasiswa(m_03, [k_032, k_036, k_066, k_075, k_080, k_085]).
+jadwal_mahasiswa(m_03, [k_032, k_036, k_066, k_075, k_080, k_084]).
 jadwal_mahasiswa(m_02, [k_031, k_024, k_036, k_066, k_106]).

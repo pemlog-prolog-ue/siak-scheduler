@@ -89,7 +89,7 @@ export default class Landing extends React.Component {
     var session = pl.create(1000);
     var program = program_pl + scheduler_pl;
     // console.log(program);
-    const query = "tidak_bentrok_kelas(X,Y)."
+    const query = "dosen(Id_dosen, Nama_dosen)."
     this.generate_result(session, program, query);
   }
 
@@ -105,7 +105,7 @@ export default class Landing extends React.Component {
   }
   render() {
     // console.log(this.state.list_dosen_choices)
-    console.log(this.state.chosenDosen);
+    // console.log(this.state.chosenDosen);
     return (
       <div className="main-container">
         <h2>

@@ -1,18 +1,27 @@
-import React from "react";
+import React, {useState} from "react";
 import "./landing.css";
-import {PROGRAM} from "./database"
+import { program_pl } from "./database";
+import { scheduler_pl } from "./scheduler_pl";
+import {Multiselect} from "multiselect-react-dropdown"
+
 
 export default class Landing extends React.Component {
   constructor() {
     super();
     this.state = {
       num:0,
+      raw_program_pl: ``,
       result: "",
       preferensi_dosen: "",
       preferensi_teman: "",
       preferensi_minat: "",
+      matakuliah_lulus: "",
+      list_matakuliah_lulus: [],
       list_result: [],
+      list_dosen_choices:[],
+      chosenDosen: []
     }
+    this.handleDosenChoice = this.handleDosenChoice.bind(this);
   }
 
   dosenHandler = (e) => {
@@ -27,20 +36,41 @@ export default class Landing extends React.Component {
     this.setState({preferensi_minat: e.target.value});
   }
 
+  mataKuliahLulusHandler = (e) => {
+    this.setState({matakuliah_lulus: e.target.value})
+  }
+
   submitHandler = (e) => {
     e.preventDefault();
-    var pl = require("tau-prolog")
-    var session = pl.create(1000);
-    const program = PROGRAM;
-    const query = "dosen(" + this.state.preferensi_dosen + ",R).";
+    console.log("SUBMIT")
+  }
 
-    const show = ans => {
-      var jangke = session.format_answer(ans);
-      var substr = jangke.substring(0,1);
-      if (substr === "R") {
-        this.setState({result: jangke});
+  handleDosenChoice(option) {
+    this.setState({
+      chosenDosen: option
+    })
+  }
+
+  generate_result = (session, program, query) => {
+    const show = (ans) => {
+      var query_result = session.format_answer(ans);
+      // console.log(query_result);
+      console.log(query_result)
+      var functor = query.split("(")[0];
+
+      // Render dosen choice
+      if (functor === "dosen" && query_result !== "false.") {
+        var id_dosen = query_result.split(" = ")[1];
+        id_dosen = id_dosen.split(", ")[0]
+        var nama_dosen = query_result.split(" = ")[2];
+        console.log(id_dosen);
+        console.log(nama_dosen);
+        var json_object = {
+          "id_dosen": id_dosen,
+          "nama_dosen": nama_dosen
+        }
+        this.setState({list_dosen_choices: this.state.list_dosen_choices.concat(json_object)});
       }
-      console.log(jangke);
     }
 
     session.consult(program, {
@@ -54,21 +84,45 @@ export default class Landing extends React.Component {
     });
   }
 
-  componentDidMount = () => {
-    
+  fetchDosenChoices = () => {
+    var pl = require("tau-prolog")
+    var session = pl.create(1000);
+    var program = program_pl + scheduler_pl;
+    // console.log(program);
+    const query = "tidak_bentrok_kelas(X,Y)."
+    this.generate_result(session, program, query);
   }
-  
+
+  componentDidMount = () => {
+    this.fetchDosenChoices();
+  }
+  testrender = () => {
+    return (
+      <div>
+        <h2>YAY</h2>
+      </div>
+    )
+  }
   render() {
+    // console.log(this.state.list_dosen_choices)
+    console.log(this.state.chosenDosen);
     return (
       <div className="main-container">
         <h2>
-          Siak Scheduler
+          Cari jadwal Siak
         </h2>
         <form className="form-container" onSubmit={this.submitHandler}>
           <div className="field-container">
             <label>Preferensi dosen</label>
-            <input type="text" value={this.state.preferensi_dosen}
-            onChange={this.dosenHandler}/>
+            <div>
+              <Multiselect
+              onSelect={this.handleDosenChoice}
+              onRemove={this.handleDosenChoice}
+              options={this.state.list_dosen_choices}
+              placeholder="Pilih dosen favorit"
+              displayValue="nama_dosen"
+              />
+            </div>
           </div>
           <div className="field-container">
             <label>Preferensi teman</label>
@@ -80,11 +134,14 @@ export default class Landing extends React.Component {
             <input type="text" value={this.state.preferensi_minat}
             onChange={this.minatHandler}/>
           </div>
+          <div className="field-container">
+            <label>Mata kuliah yang sudah lulus:</label>
+            <input type="text" value={this.state.matakuliah_lulus}
+            onChange={this.mataKuliahLulusHandler}/>
+          </div>
           <button type="submit" >Submit</button>
         </form>
-        <p>
-          {this.state.result}
-        </p>
+        
       </div>
     );
   }

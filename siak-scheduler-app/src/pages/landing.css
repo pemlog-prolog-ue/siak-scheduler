@@ -8,6 +8,8 @@
   display: flex;
   flex-direction: column;
   align-items: left;
+  min-width: 500px;
+  max-width: 500px;
 }
 
 .field-container input {
@@ -16,4 +18,9 @@
 
 .field-container label {
   margin-bottom: 4%;
+}
+
+.multi-select {
+  width: 200px;
+  background-color: red;
 }

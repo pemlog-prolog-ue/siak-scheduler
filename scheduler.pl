@@ -4,10 +4,36 @@
 
 % cari_jadwal(m_10, 'Bunga Amalia', 20, [d_01, d_02], [m_01, m_02], [mk_01, mk_02], [mk_03, mk_04], [k_001, k_002, k_003, k_004, k_005])
 
-% cari_jadwal(IDMahasiswa, NamaMahasiswa, SKS, PrefDosen, PrefTeman, PrefMataKuliah, ListMataKuliahSudahLulus, HasilJadwal).
-    % \+bentrok(PrefMataKuliah).
+% info_kelas_string([], []) :- !.
+% info_kelas_string([KelasA | KelasLainnya], [InfoKelasA | ListNamaKelas]):-
+%     kelas(KelasA, MataKuliah, KodeKelasA), mata_kuliah(MataKuliah, NamaMataKuliah, SKSMataKuliah),
+%     atomics_to_string([NamaMataKuliah, KodeKelasA], " ", NamaKelasA),
 
-cek_list_kelas_tidak_bentrok([_]).
+%     dosen_kelas(KelasA, DosenKelasA), dosen(DosenKelasA, NamaDosenKelasA),
+    
+%     bagof([HariKelasA, JamMulaiKelasA, MenitMulaiKelasA, JamSelesaiKelasA, MenitSelesaiKelasA],
+%         jadwal_kelas(KelasA, HariKelasA, JamMulaiKelasA, MenitMulaiKelasA, JamSelesaiKelasA, MenitSelesaiKelasA),
+%     BagJadwalA),
+%     atomics_to_string(BagJadwalA, ", ")
+
+
+
+
+% jadwal_to_string([String], String):- !.
+% jadwal_to_string([String1 | StringLainnya], Separator, StringAll):-
+%     atomics_to_string()
+%     jadwal_to_string(StringLainnya, Separator, StringBelakang),
+%     string_concat(String1, Separator, StringSeparator),
+%     string_concat(StringSeparator, StringBelakang, StringAll).
+    
+    
+jadwal_sesuai(IDMahasiswa, NamaMahasiswa, BatasSKS, PrefDosen, PrefTeman, PrefMataKuliah, ListMataKuliahSudahLulus, SetKelasSesuai, SKSSetKelasSesuai):-
+    retractall(semua_list_kelas_sudah_terpilih(_)), assertz(semua_list_kelas_sudah_terpilih([])),
+    mata_kuliah_bisa_diambil(ListMataKuliahSudahLulus, ListMataKuliahBisaDiambil),
+    kelas_bisa_diambil(ListMataKuliahBisaDiambil, ListKelasBisaDiambil),
+    semua_list_kelas_terpilih(BatasSKS, ListKelasBisaDiambil, SKSSetKelasSesuai, SetKelasSesuai, ListKelasBisaDiambil).
+
+cek_list_kelas_tidak_bentrok([_]) :- !.
 cek_list_kelas_tidak_bentrok([KelasA | KelasSisa]) :-
     cek_1_kelas_tidak_bentrok_dengan_list_kelas(KelasA, KelasSisa),
     cek_list_kelas_tidak_bentrok(KelasSisa).

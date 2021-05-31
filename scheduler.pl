@@ -1,6 +1,6 @@
 :- use_module(database).
 :- dynamic bentrok/2.
-:- dynamic list_kelas_sudah_terpilih/1.
+:- dynamic semua_list_kelas_sudah_terpilih/1.
 
 % cari_jadwal(m_10, 'Bunga Amalia', 20, [d_01, d_02], [m_01, m_02], [mk_01, mk_02], [mk_03, mk_04], [k_001, k_002, k_003, k_004, k_005])
 
@@ -70,8 +70,12 @@ memenuhi_prasyarat(MataKuliah, ListMataKuliahSudahLulus) :-
     subset(ListPrasyaratMataKuliah, ListMataKuliahSudahLulus).
 
 mata_kuliah_bisa_diambil(ListMataKuliahSudahLulus, ListMataKuliahBisaDiambil) :-
-    bagof(IDMataKuliah, (memenuhi_prasyarat(IDMataKuliah, ListMataKuliahSudahLulus), 
-    \+member(IDMataKuliah, ListMataKuliahSudahLulus)), ListMataKuliahBisaDiambil).
+    bagof(IDMataKuliah,
+        (
+            memenuhi_prasyarat(IDMataKuliah, ListMataKuliahSudahLulus),
+            \+member(IDMataKuliah, ListMataKuliahSudahLulus)
+        ),
+        ListMataKuliahBisaDiambil).
 
 kelas_bisa_diambil([], []).
 kelas_bisa_diambil([MataKuliahBisaDiambilA | MataKuliahBisaDiambilSisa], ListKelasBisaDiambil) :-
@@ -86,12 +90,15 @@ pernah_terpilih(ListKelas, [ListKelasPernahTerpilih | _]):-
 pernah_terpilih(ListKelas, [_| ListKelasPernahTerpilihLainnya]):-
     pernah_terpilih(ListKelas, ListKelasPernahTerpilihLainnya).
 
+semua_list_kelas_sudah_terpilih([]).
+
 semua_list_kelas_terpilih(_, _, _, _, []) :- !.
 semua_list_kelas_terpilih(BatasSKS, ListKelasBisaDiambil, TotalSKS, ListKelasTerpilih, _):-
     kelas_sesuai_sks(BatasSKS, ListKelasBisaDiambil, TotalSKS, ListKelasTerpilih, 0, []),
-    findall(ListKelasPernahTerpilih, list_kelas_sudah_terpilih(ListKelasPernahTerpilih), SemuaListKelasPernahTerpilih),
+    semua_list_kelas_sudah_terpilih(SemuaListKelasPernahTerpilih),
     \+pernah_terpilih(ListKelasTerpilih, SemuaListKelasPernahTerpilih),
-    assertz(list_kelas_sudah_terpilih(ListKelasTerpilih)).
+    append(SemuaListKelasPernahTerpilih, [ListKelasTerpilih], SemuaListKelasTerpilihBaru),
+    retractall(semua_list_kelas_sudah_terpilih(_)), assertz(semua_list_kelas_sudah_terpilih(SemuaListKelasTerpilihBaru)).
 semua_list_kelas_terpilih(BatasSKS, [KelasA | SisaListKelasBisaDiambil], TotalSKS, ListKelasTerpilih, [_|ListTemporary]):-
     append(SisaListKelasBisaDiambil, [KelasA], ListKelasBisaDiambil),
     semua_list_kelas_terpilih(BatasSKS, ListKelasBisaDiambil, TotalSKS, ListKelasTerpilih, ListTemporary).

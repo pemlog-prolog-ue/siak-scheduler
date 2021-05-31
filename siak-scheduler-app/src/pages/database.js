@@ -3,8 +3,6 @@ import React from "react";
 export const program_pl = `
 % Database SIAK Scheduler
 
-:- module(database, [mahasiswa/2, mata_kuliah/3, prasyarat/2, kelas/3, dosen/2, dosen_kelas/2, kapasitas_kelas/3, jadwal_kelas/6, jadwal_mahasiswa/2]).
-
 % mahasiswa/2
 % /1 : ID mahasiswa
 % /2 : nama mahasiswa
@@ -1118,7 +1116,6 @@ jadwal_mahasiswa(m_01, [k_031, k_035, k_036, k_066]).
 jadwal_mahasiswa(m_02, [k_031, k_034, k_036, k_066, k_106]).
 jadwal_mahasiswa(m_03, [k_032, k_036, k_066, k_075, k_080, k_084]).
 jadwal_mahasiswa(m_02, [k_031, k_024, k_036, k_066, k_106]).
-
 `
 
 const db = props => <h2>test</h2>

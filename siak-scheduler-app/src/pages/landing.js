@@ -16,13 +16,19 @@ export default class Landing extends React.Component {
       preferensi_teman: "",
       preferensi_minat: "",
       matakuliah_lulus: "",
+      jumlah_sks: "",
       list_matakuliah_lulus: [],
       list_result: [],
-      // Generate choices
+      // Generate choices //
+      // dosen
       list_dosen_choices:[],
       chosenDosen: [],
+      // teman
       list_friend_choices: [],
-      chosenFriends: []
+      chosenFriends: [],
+      // mata kuliah
+      list_graduated_choice: [],
+      chosenGraduated: []
     }
     this.style = {
       searchBox: {
@@ -31,6 +37,8 @@ export default class Landing extends React.Component {
     }
     this.handleDosenChoice = this.handleDosenChoice.bind(this);
     this.handleFriendChoice = this.handleFriendChoice.bind(this);
+    this.handleGraduatedChoice = this.handleGraduatedChoice.bind(this);
+    this.sksHandler = this.sksHandler.bind(this);
   }
 
   dosenHandler = (e) => {
@@ -49,20 +57,30 @@ export default class Landing extends React.Component {
     this.setState({matakuliah_lulus: e.target.value})
   }
 
+  sksHandler = (e) => {
+    this.setState({jumlah_sks: e.target.value})
+  }
+
   submitHandler = (e) => {
     e.preventDefault();
     console.log("SUBMIT")
   }
 
-  handleDosenChoice(option) {
+  handleDosenChoice = (option) => {
     this.setState({
       chosenDosen: option,
     })
   }
 
-  handleFriendChoice(option) {
+  handleFriendChoice = (option) => {
     this.setState({
-      chosenFriends: option
+      chosenFriends: option,
+    })
+  }
+
+  handleGraduatedChoice = (option) => {
+    this.setState({
+      chosenGraduated: option,
     })
   }
 
@@ -78,14 +96,13 @@ export default class Landing extends React.Component {
         var nama_dosen = query_result.split(" = ")[2];
         var json_object = {
           "id_dosen": id_dosen,
-          "nama_dosen": nama_dosen
+          "nama_dosen": nama_dosen.substring(0, nama_dosen.length-1)
         }
         this.setState({list_dosen_choices: this.state.list_dosen_choices.concat(json_object)});
       }
 
       // Render mahasiswa (teman) choice
       if (functor === "mahasiswa" && query_result !== "false.") {
-        console.log(query_result)
         var id_mhs = query_result.split(" = ")[1];
         id_mhs = id_mhs.split(", ")[0]
         var nama_mhs = query_result.split(" = ")[2];
@@ -93,10 +110,25 @@ export default class Landing extends React.Component {
         // console.log(nama_mhs)
         var json_object = {
           "id_mhs": id_mhs,
-          "nama_mhs": nama_mhs
+          "nama_mhs": nama_mhs.substring(0, nama_mhs.length-1)
         }
-        console.log(json_object)
         this.setState({list_friend_choices: this.state.list_friend_choices.concat(json_object)});
+      }
+
+      // Render graduated choice
+      if (functor === "mata_kuliah" && query_result !== "false.") {
+        var id_mk = query_result.split(" = ")[1];
+        id_mk = id_mk.split(", ")[0]
+        var nama_mk = query_result.split(" = ")[2];
+        // console.log(id_mk);
+        // console.log(nama_mk)
+        var json_object = {
+          "id_mk": id_mk,
+          "nama_mk": nama_mk.substring(0, nama_mk.length-1)
+        }
+        this.setState({
+          list_graduated_choice: this.state.list_graduated_choice.concat(json_object)}
+        );
       }
     }
 
@@ -129,9 +161,19 @@ export default class Landing extends React.Component {
     this.generate_result(session, program, query);
   }
 
+  fetchGraduatedChoices = () => {
+    var pl = require("tau-prolog")
+    var session = pl.create(1000);
+    var program = program_pl + scheduler_pl;
+    // console.log(program);
+    const query = "mata_kuliah(ID, Nama, _)."
+    this.generate_result(session, program, query);
+  }
+
   componentDidMount = () => {
     this.fetchDosenChoices();
     this.fetchMahasiswaChoices();
+    this.fetchGraduatedChoices();
   }
   testrender = () => {
     return (
@@ -143,6 +185,7 @@ export default class Landing extends React.Component {
   render() {
     // console.log(this.state.list_friend_choices)
     // console.log(this.state.chosenDosen);
+    console.log(this.state.jumlah_sks)
     return (
       <div className="main-container">
         <h2>
@@ -153,6 +196,7 @@ export default class Landing extends React.Component {
             <label>Preferensi dosen</label>
             <div>
               <Multiselect
+              showCheckbox={true}
               style={this.style}
               onSelect={this.handleDosenChoice}
               onRemove={this.handleDosenChoice}
@@ -166,6 +210,7 @@ export default class Landing extends React.Component {
             <label>Preferensi teman</label>
             <div>
               <Multiselect
+              showCheckbox={true}
               style={this.style}
               onSelect={this.handleFriendChoice}
               onRemove={this.handleFriendChoice}
@@ -179,6 +224,7 @@ export default class Landing extends React.Component {
             <label>Preferensi minat</label>
             <div>
               <Multiselect
+              showCheckbox={true}
               style={this.style}
               onSelect={this.handleDosenChoice}
               onRemove={this.handleDosenChoice}
@@ -192,13 +238,24 @@ export default class Landing extends React.Component {
             <label>Mata kuliah yang sudah lulus:</label>
             <div>
               <Multiselect
+              showCheckbox={true}
               style={this.style}
-              onSelect={this.handleDosenChoice}
-              onRemove={this.handleDosenChoice}
-              options={this.state.list_dosen_choices}
+              onSelect={this.handleGraduatedChoice}
+              onRemove={this.handleGraduatedChoice}
+              options={this.state.list_graduated_choice}
               placeholder="Masukan mata kuliah yang sudah lulus"
-              displayValue="nama_dosen"
+              displayValue="nama_mk"
               />
+            </div>
+          </div>
+          <div className="field-container">
+            <label>SKS maksimal:</label>
+            <div>
+              <input
+              type="text"
+              value={this.state.jumlah_sks}
+              pattern="[0-9]*"
+              onChange={this.sksHandler}/>
             </div>
           </div>
           <button type="submit" >Submit</button>

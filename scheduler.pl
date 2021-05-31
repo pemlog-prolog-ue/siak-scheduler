@@ -72,3 +72,17 @@ kelas_bisa_diambil([MataKuliahBisaDiambilA | MataKuliahBisaDiambilSisa], ListKel
     bagof(IDKelas, NamaKelas^(kelas(IDKelas, MataKuliahBisaDiambilA, NamaKelas)), ListKelasBisaDiambilA),
     append(ListKelasBisaDiambilA, ListKelasBisaDiambilSisa, ListKelasBisaDiambil),
     kelas_bisa_diambil(MataKuliahBisaDiambilSisa, ListKelasBisaDiambilSisa).
+
+
+kelas_sesuai_sks(_, [], 0, [], _, _).
+kelas_sesuai_sks(BatasSKS, [KelasBisaDiambilA | SisaKelasBisaDiambil], TotalSKSDiambil, KelasMemenuhi, SKSTemporary, ListTemporary):-
+    kelas(KelasBisaDiambilA, MataKuliah, _), mata_kuliah(MataKuliah, _, SKSMataKuliah),
+    BatasSKS >= SKSTemporary+SKSMataKuliah,
+    cek_1_kelas_tidak_bentrok_dengan_list_kelas(KelasBisaDiambilA, ListTemporary), !,
+    append([KelasBisaDiambilA], KelasMemenuhiLainnya, KelasMemenuhi),
+    append([KelasBisaDiambilA], ListTemporary, ListTemporaryBerikutnya),
+    SKSTemporaryBerikutnya is SKSTemporary+SKSMataKuliah,
+    kelas_sesuai_sks(BatasSKS, SisaKelasBisaDiambil, SKSKelasMemenuhiLainnya, KelasMemenuhiLainnya, SKSTemporaryBerikutnya, ListTemporaryBerikutnya),
+    TotalSKSDiambil is SKSKelasMemenuhiLainnya+SKSMataKuliah.
+kelas_sesuai_sks(BatasSKS, [KelasBisaDiambilA | SisaKelasBisaDiambil], TotalSKSDiambil, KelasMemenuhi, SKSTemporary, ListTemporary):-
+    kelas_sesuai_sks(BatasSKS, SisaKelasBisaDiambil, TotalSKSDiambil, KelasMemenuhi, SKSTemporary, ListTemporary).

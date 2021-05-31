@@ -4,27 +4,28 @@
 
 % cari_jadwal(m_10, 'Bunga Amalia', 20, [d_01, d_02], [m_01, m_02], [mk_01, mk_02], [mk_03, mk_04], [k_001, k_002, k_003, k_004, k_005])
 
-% info_kelas_string([], []) :- !.
-% info_kelas_string([KelasA | KelasLainnya], [InfoKelasA | ListNamaKelas]):-
-%     kelas(KelasA, MataKuliah, KodeKelasA), mata_kuliah(MataKuliah, NamaMataKuliah, SKSMataKuliah),
-%     atomics_to_string([NamaMataKuliah, KodeKelasA], " ", NamaKelasA),
+info_kelas_string([], []) :- !.
+info_kelas_string([KelasA | KelasLainnya], [InfoKelasA | InfoKelasLainnya]):-
+    kelas(KelasA, MataKuliah, KodeKelasA), mata_kuliah(MataKuliah, NamaMataKuliah, SKSMataKuliah),
+    atomics_to_string([NamaMataKuliah, KodeKelasA], " ", NamaKelasA),
 
-%     dosen_kelas(KelasA, DosenKelasA), dosen(DosenKelasA, NamaDosenKelasA),
+    dosen_kelas(KelasA, DosenKelasA), dosen(DosenKelasA, NamaDosenKelasA),
     
-%     bagof([HariKelasA, JamMulaiKelasA, MenitMulaiKelasA, JamSelesaiKelasA, MenitSelesaiKelasA],
-%         jadwal_kelas(KelasA, HariKelasA, JamMulaiKelasA, MenitMulaiKelasA, JamSelesaiKelasA, MenitSelesaiKelasA),
-%     BagJadwalA),
-%     atomics_to_string(BagJadwalA, ", ")
+    bagof([HariKelasA, JamMulaiKelasA, MenitMulaiKelasA, JamSelesaiKelasA, MenitSelesaiKelasA],
+        jadwal_kelas(KelasA, HariKelasA, JamMulaiKelasA, MenitMulaiKelasA, JamSelesaiKelasA, MenitSelesaiKelasA),
+    BagJadwalA),
+    jadwal_to_string(BagJadwalA, JadwalAString),
+    atomics_to_string(JadwalAString, " ; ", BagJadwalAString),
+
+    atomics_to_string([NamaKelasA, NamaDosenKelasA, SKSMataKuliah, BagJadwalAString], " | ", InfoKelasA),
+    info_kelas_string(KelasLainnya, InfoKelasLainnya).
 
 
-
-
-% jadwal_to_string([String], String):- !.
-% jadwal_to_string([String1 | StringLainnya], Separator, StringAll):-
-%     atomics_to_string()
-%     jadwal_to_string(StringLainnya, Separator, StringBelakang),
-%     string_concat(String1, Separator, StringSeparator),
-%     string_concat(StringSeparator, StringBelakang, StringAll).
+jadwal_to_string([], []):- !.
+jadwal_to_string([[Hari | Jam] | JadwalLainnya], [Jadwal1String | JadwalStringLainnya]):-
+    atomics_to_string(Jam, ". ", JamString),
+    atomics_to_string([Hari, JamString], ", ", Jadwal1String),
+    jadwal_to_string(JadwalLainnya, JadwalStringLainnya).
     
     
 jadwal_sesuai(IDMahasiswa, NamaMahasiswa, BatasSKS, PrefDosen, PrefTeman, PrefMataKuliah, ListMataKuliahSudahLulus, SetKelasSesuai, SKSSetKelasSesuai):-

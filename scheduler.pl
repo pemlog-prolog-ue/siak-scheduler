@@ -1,5 +1,6 @@
 :- use_module(database).
 :- dynamic bentrok/2.
+:- dynamic list_kelas_sudah_terpilih/1.
 
 % cari_jadwal(m_10, 'Bunga Amalia', 20, [d_01, d_02], [m_01, m_02], [mk_01, mk_02], [mk_03, mk_04], [k_001, k_002, k_003, k_004, k_005])
 
@@ -79,23 +80,33 @@ kelas_bisa_diambil([MataKuliahBisaDiambilA | MataKuliahBisaDiambilSisa], ListKel
     kelas_bisa_diambil(MataKuliahBisaDiambilSisa, ListKelasBisaDiambilSisa).
 
 
+pernah_terpilih(_, []) :- !, false.
+pernah_terpilih(ListKelas, [ListKelasPernahTerpilih | _]):-
+    msort(ListKelas, ListKelasTerurut), msort(ListKelasPernahTerpilih, ListKelasTerurut), !.
+pernah_terpilih(ListKelas, [_| ListKelasPernahTerpilihLainnya]):-
+    pernah_terpilih(ListKelas, ListKelasPernahTerpilihLainnya).
+
 semua_list_kelas_terpilih(_, _, _, _, []) :- !.
 semua_list_kelas_terpilih(BatasSKS, ListKelasBisaDiambil, TotalSKS, ListKelasTerpilih, _):-
-    kelas_sesuai_sks(BatasSKS, ListKelasBisaDiambil, TotalSKS, ListKelasTerpilih, 0, []).
+    kelas_sesuai_sks(BatasSKS, ListKelasBisaDiambil, TotalSKS, ListKelasTerpilih, 0, []),
+    findall(ListKelasPernahTerpilih, list_kelas_sudah_terpilih(ListKelasPernahTerpilih), SemuaListKelasPernahTerpilih),
+    \+pernah_terpilih(ListKelasTerpilih, SemuaListKelasPernahTerpilih),
+    assertz(list_kelas_sudah_terpilih(ListKelasTerpilih)).
 semua_list_kelas_terpilih(BatasSKS, [KelasA | SisaListKelasBisaDiambil], TotalSKS, ListKelasTerpilih, [_|ListTemporary]):-
     append(SisaListKelasBisaDiambil, [KelasA], ListKelasBisaDiambil),
     semua_list_kelas_terpilih(BatasSKS, ListKelasBisaDiambil, TotalSKS, ListKelasTerpilih, ListTemporary).
 
 kelas_sesuai_sks(_, [], 0, [], _, _) :- !.
 kelas_sesuai_sks(BatasSKS, ListKelasBisaDiambil, TotalSKSDiambil, KelasMemenuhi, SKSTemporary, ListTemporary):-
-    member(KelasPastiDiambil, ListKelasBisaDiambil),
-    kelas(KelasPastiDiambil, MataKuliah, _), mata_kuliah(MataKuliah, _, SKSMataKuliah),
+    member(KelasBisaDiambilA, ListKelasBisaDiambil),
+    kelas(KelasBisaDiambilA, MataKuliah, _),
+    mata_kuliah(MataKuliah, _, SKSMataKuliah),
     BatasSKS >= SKSTemporary+SKSMataKuliah,
-    cek_1_kelas_tidak_bentrok_dengan_list_kelas(KelasPastiDiambil, ListTemporary), !,
-    append([KelasPastiDiambil], KelasMemenuhiLainnya, KelasMemenuhi),
-    append([KelasPastiDiambil], ListTemporary, ListTemporaryBerikutnya),
+    cek_1_kelas_tidak_bentrok_dengan_list_kelas(KelasBisaDiambilA, ListTemporary), !,
+    append([KelasBisaDiambilA], KelasMemenuhiLainnya, KelasMemenuhi),
+    append([KelasBisaDiambilA], ListTemporary, ListTemporaryBerikutnya),
     SKSTemporaryBerikutnya is SKSTemporary+SKSMataKuliah,
-    delete(ListKelasBisaDiambil, KelasPastiDiambil, SisaKelasBisaDiambil),
+    delete(ListKelasBisaDiambil, KelasBisaDiambilA, SisaKelasBisaDiambil),
     kelas_sesuai_sks(BatasSKS, SisaKelasBisaDiambil, SKSKelasMemenuhiLainnya, KelasMemenuhiLainnya, SKSTemporaryBerikutnya, ListTemporaryBerikutnya),
     TotalSKSDiambil is SKSKelasMemenuhiLainnya+SKSMataKuliah.
 kelas_sesuai_sks(BatasSKS, [_ | SisaKelasBisaDiambil], TotalSKSDiambil, KelasMemenuhi, SKSTemporary, ListTemporary):-

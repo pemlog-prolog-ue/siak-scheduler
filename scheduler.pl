@@ -7,7 +7,7 @@
 info_kelas_string([], []) :- !.
 info_kelas_string([KelasA | KelasLainnya], [InfoKelasA | InfoKelasLainnya]):-
     kelas(KelasA, MataKuliah, KodeKelasA), mata_kuliah(MataKuliah, NamaMataKuliah, SKSMataKuliah),
-    list_to_string([NamaMataKuliah, KodeKelasA], " ", NamaKelasA),
+    list_to_string([NamaMataKuliah, KodeKelasA], ' ', NamaKelasA),
 
     dosen_kelas(KelasA, DosenKelasA), dosen(DosenKelasA, NamaDosenKelasA),
     
@@ -15,9 +15,9 @@ info_kelas_string([KelasA | KelasLainnya], [InfoKelasA | InfoKelasLainnya]):-
         jadwal_kelas(KelasA, HariKelasA, JamMulaiKelasA, MenitMulaiKelasA, JamSelesaiKelasA, MenitSelesaiKelasA),
     BagJadwalA),
     jadwal_to_string(BagJadwalA, JadwalAString),
-    list_to_string(JadwalAString, " ; ", BagJadwalAString),
+    list_to_string(JadwalAString, ' ; ', BagJadwalAString),
 
-    list_to_string([NamaKelasA, NamaDosenKelasA, SKSMataKuliah, BagJadwalAString], " | ", InfoKelasA),
+    list_to_string([NamaKelasA, NamaDosenKelasA, SKSMataKuliah, BagJadwalAString], ' | ', InfoKelasA),
     info_kelas_string(KelasLainnya, InfoKelasLainnya).
 
 list_to_string([Atom], _, Atom):- !.
@@ -29,8 +29,8 @@ list_to_string([Atom1 | AtomLainnya], Separator, StringAll) :-
 
 jadwal_to_string([], []):- !.
 jadwal_to_string([[Hari | Jam] | JadwalLainnya], [Jadwal1String | JadwalStringLainnya]):-
-    list_to_string(Jam, ". ", JamString),
-    list_to_string([Hari, JamString], ", ", Jadwal1String),
+    list_to_string(Jam, '. ', JamString),
+    list_to_string([Hari, JamString], ', ', Jadwal1String),
     jadwal_to_string(JadwalLainnya, JadwalStringLainnya).
     
     

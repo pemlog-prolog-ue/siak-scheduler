@@ -32,7 +32,7 @@ export default class Landing extends React.Component {
     }
     this.style = {
       searchBox: {
-        fontSize: "2px"
+        fontSize: "2px",
       }
     }
     this.handleDosenChoice = this.handleDosenChoice.bind(this);
@@ -192,7 +192,7 @@ export default class Landing extends React.Component {
           Cari jadwal Siak
         </h2>
         <form className="form-container" onSubmit={this.submitHandler}>
-          <div className="field-container">
+          {/* <div className="field-container">
             <label>Preferensi dosen</label>
             <div>
               <Multiselect
@@ -233,7 +233,7 @@ export default class Landing extends React.Component {
               displayValue="nama_dosen"
               />
             </div>
-          </div>
+          </div> */}
           <div className="field-container">
             <label>Mata kuliah yang sudah lulus:</label>
             <div>
@@ -243,20 +243,18 @@ export default class Landing extends React.Component {
               onSelect={this.handleGraduatedChoice}
               onRemove={this.handleGraduatedChoice}
               options={this.state.list_graduated_choice}
-              placeholder="Masukan mata kuliah yang sudah lulus"
+              placeholder="Pilih mata kuliah"
               displayValue="nama_mk"
               />
             </div>
           </div>
           <div className="field-container">
             <label>SKS maksimal:</label>
-            <div>
-              <input
-              type="text"
-              value={this.state.jumlah_sks}
-              pattern="[0-9]*"
-              onChange={this.sksHandler}/>
-            </div>
+            <input
+            type="text"
+            value={this.state.jumlah_sks}
+            pattern="[0-9]*"
+            onChange={this.sksHandler}/>
           </div>
           <button type="submit" >Submit</button>
         </form>

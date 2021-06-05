@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import "./landing.css";
 import { program_pl } from "./database";
 import { scheduler_pl } from "./scheduler_pl";
-import {Multiselect} from "multiselect-react-dropdown"
+import {Multiselect} from "multiselect-react-dropdown";
+import { getAllMatkul } from "./siak_api";
 
 
 export default class Landing extends React.Component {
@@ -28,7 +29,8 @@ export default class Landing extends React.Component {
       chosenFriends: [],
       // mata kuliah
       list_graduated_choice: [],
-      chosenGraduated: []
+      chosenGraduated: [],
+      test_matkul: [],
     }
     this.style = {
       searchBox: {
@@ -174,6 +176,14 @@ export default class Landing extends React.Component {
     this.fetchDosenChoices();
     this.fetchMahasiswaChoices();
     this.fetchGraduatedChoices();
+
+    getAllMatkul((matkul) => {
+      console.log("FETCH MATKUL");
+      console.log(matkul);
+      this.setState({
+        test_matkul: matkul
+      })
+    });
   }
   testrender = () => {
     return (
@@ -185,7 +195,6 @@ export default class Landing extends React.Component {
   render() {
     // console.log(this.state.list_friend_choices)
     // console.log(this.state.chosenDosen);
-    console.log(this.state.jumlah_sks)
     return (
       <div className="main-container">
         <h2>

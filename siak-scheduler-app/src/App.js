@@ -9,8 +9,7 @@ function App() {
   return (
     <Router className="App">
       <Switch>
-        <Route exact path="/">
-          <Landing/>
+        <Route exact path="/" component={Landing}>
         </Route>
       </Switch>
     </Router>

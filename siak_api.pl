@@ -17,6 +17,7 @@
 
 % need our bands!
 :- ensure_loaded(database).
+:- ensure_loaded(scheduler).
 
 % api to get a list of bands, this allows for an optional match
 % parameter although it isn't used in the demo.

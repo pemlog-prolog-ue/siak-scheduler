@@ -7,30 +7,23 @@
 info_kelas_string([], []) :- !.
 info_kelas_string([KelasA | KelasLainnya], [InfoKelasA | InfoKelasLainnya]):-
     kelas(KelasA, MataKuliah, KodeKelasA), mata_kuliah(MataKuliah, NamaMataKuliah, SKSMataKuliah),
-    list_to_string([NamaMataKuliah, KodeKelasA], ' ', NamaKelasA),
+    atomics_to_string([NamaMataKuliah, KodeKelasA], ' ', NamaKelasA),
 
     dosen_kelas(KelasA, DosenKelasA), dosen(DosenKelasA, NamaDosenKelasA),
     
-    bagof([HariKelasA, JamMulaiKelasA, MenitMulaiKelasA, JamSelesaiKelasA, MenitSelesaiKelasA],
+    findall([HariKelasA, JamMulaiKelasA, MenitMulaiKelasA, JamSelesaiKelasA, MenitSelesaiKelasA],
         jadwal_kelas(KelasA, HariKelasA, JamMulaiKelasA, MenitMulaiKelasA, JamSelesaiKelasA, MenitSelesaiKelasA),
     BagJadwalA),
     jadwal_to_string(BagJadwalA, JadwalAString),
-    list_to_string(JadwalAString, ' ; ', BagJadwalAString),
 
-    list_to_string([NamaKelasA, NamaDosenKelasA, SKSMataKuliah, BagJadwalAString], ' | ', InfoKelasA),
+    InfoKelasA = info_kelas(NamaKelasA, NamaDosenKelasA, SKSMataKuliah, JadwalAString),
     info_kelas_string(KelasLainnya, InfoKelasLainnya).
 
-list_to_string([Atom], _, Atom):- !.
-list_to_string([Atom1 | AtomLainnya], Separator, StringAll) :-
-    list_to_string(AtomLainnya, Separator, StringLainnya),
-    atom_concat(Atom1, Separator, Atom1Separator),
-    atom_concat(Atom1Separator, StringLainnya, StringAll).
-    
-
 jadwal_to_string([], []):- !.
-jadwal_to_string([[Hari | Jam] | JadwalLainnya], [Jadwal1String | JadwalStringLainnya]):-
-    list_to_string(Jam, '. ', JamString),
-    list_to_string([Hari, JamString], ', ', Jadwal1String),
+jadwal_to_string([[Hari, JamMulai, MenitMulai, JamSelesai, MenitSelesai] | JadwalLainnya], [Jadwal1String | JadwalStringLainnya]):-
+    atomics_to_string([JamMulai, MenitMulai], '.', JamMenitMulai),
+    atomics_to_string([JamSelesai, MenitSelesai], '.', JamMenitSelesai),
+    Jadwal1String = [Hari, JamMenitMulai, JamMenitSelesai],
     jadwal_to_string(JadwalLainnya, JadwalStringLainnya).
     
     

@@ -13,6 +13,7 @@
 % json converters for the band and album so we can send/receive them on
 % the internetz.
 :- json_object mata_kuliah(id:atom, nama_matkul:atom, sks:integer).
+:- json_object info_kelas(nama_kelas:atom, nama_dosen:atom, sks:integer, jadwal:list).
 % :- json_object album(band:atom, name:atom, year:integer).
 
 % need our bands!

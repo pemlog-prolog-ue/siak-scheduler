@@ -30,6 +30,8 @@ list_matkul(Request) :-
 			[match(Match, [optional(true), default('.*')])]),
 
 	findall(mata_kuliah(Id, Nama, SKS), mata_kuliah(Id, Nama, SKS), List_matkul),
+	% jadwal_sesuai(A, Edo, 20, a, a, a, [], KelasSesuai, SKS),
+	% info_kelas_string(KelasSesuai,InfoKelasSesuai),
 
 	prolog_to_json(List_matkul, S),
 	reply_json(S, []).

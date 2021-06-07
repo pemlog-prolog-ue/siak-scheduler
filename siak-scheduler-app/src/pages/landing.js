@@ -17,7 +17,7 @@ export default class Landing extends React.Component {
       preferensi_teman: "",
       preferensi_minat: "",
       matakuliah_lulus: "",
-      jumlah_sks: "",
+      jumlah_sks: 0,
       list_matakuliah_lulus: [],
       list_result: [],
       // Generate choices //
@@ -28,9 +28,12 @@ export default class Landing extends React.Component {
       list_friend_choices: [],
       chosenFriends: [],
       // mata kuliah
-      list_graduated_choice: [],
+      list_matkul: [],
       chosenGraduated: [],
-      test_matkul: [],
+      query: {
+        graduated: [],
+        sks: 0,
+      }
     }
     this.style = {
       searchBox: {
@@ -64,8 +67,25 @@ export default class Landing extends React.Component {
   }
 
   submitHandler = (e) => {
+    console.log("SUBMIT");
+    var result = [];
+    var chosen = this.state.chosenGraduated;
+    this.setState({
+      query: {
+        graduated: [],sks:0}
+    });
+
+    for (let i = 0; i < chosen.length; i++) {
+      result.push(chosen[i].id);
+    }
+    this.setState({
+      query: {
+        graduated: result,
+        sks: this.state.jumlah_sks
+      }
+    });
+
     e.preventDefault();
-    console.log("SUBMIT")
   }
 
   handleDosenChoice = (option) => {
@@ -129,7 +149,7 @@ export default class Landing extends React.Component {
           "nama_mk": nama_mk.substring(0, nama_mk.length-1)
         }
         this.setState({
-          list_graduated_choice: this.state.list_graduated_choice.concat(json_object)}
+          list_matkul: this.state.list_matkul.concat(json_object)}
         );
       }
     }
@@ -164,26 +184,19 @@ export default class Landing extends React.Component {
   }
 
   fetchGraduatedChoices = () => {
-    var pl = require("tau-prolog")
-    var session = pl.create(1000);
-    var program = program_pl + scheduler_pl;
-    // console.log(program);
-    const query = "mata_kuliah(ID, Nama, _)."
-    this.generate_result(session, program, query);
+    getAllMatkul((matkul) => {
+      console.log("FETCH MATKUL");
+      console.log(matkul);
+      this.setState({
+        list_matkul: matkul
+      })
+    });
   }
 
   componentDidMount = () => {
     this.fetchDosenChoices();
     this.fetchMahasiswaChoices();
     this.fetchGraduatedChoices();
-
-    getAllMatkul((matkul) => {
-      console.log("FETCH MATKUL");
-      console.log(matkul);
-      this.setState({
-        test_matkul: matkul
-      })
-    });
   }
   testrender = () => {
     return (
@@ -251,9 +264,9 @@ export default class Landing extends React.Component {
               style={this.style}
               onSelect={this.handleGraduatedChoice}
               onRemove={this.handleGraduatedChoice}
-              options={this.state.list_graduated_choice}
+              options={this.state.list_matkul}
               placeholder="Pilih mata kuliah"
-              displayValue="nama_mk"
+              displayValue="nama_matkul"
               />
             </div>
           </div>
@@ -267,7 +280,11 @@ export default class Landing extends React.Component {
           </div>
           <button type="submit" >Submit</button>
         </form>
-        
+        <div>
+          [{this.state.query.graduated}]
+          <br></br>
+          {this.state.query.sks}
+        </div>
       </div>
     );
   }

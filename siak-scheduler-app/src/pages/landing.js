@@ -3,7 +3,7 @@ import "./landing.css";
 import { program_pl } from "./database";
 import { scheduler_pl } from "./scheduler_pl";
 import {Multiselect} from "multiselect-react-dropdown";
-import { getAllMatkul } from "./siak_api";
+import { getAllMatkul, postQuery } from "./siak_api";
 
 
 export default class Landing extends React.Component {
@@ -17,7 +17,7 @@ export default class Landing extends React.Component {
       preferensi_teman: "",
       preferensi_minat: "",
       matakuliah_lulus: "",
-      jumlah_sks: "",
+      jumlah_sks: 0,
       list_matakuliah_lulus: [],
       list_result: [],
       // Generate choices //
@@ -28,9 +28,12 @@ export default class Landing extends React.Component {
       list_friend_choices: [],
       chosenFriends: [],
       // mata kuliah
-      list_graduated_choice: [],
+      list_matkul: [],
       chosenGraduated: [],
-      test_matkul: [],
+      query: {
+        graduated: [],
+        sks: 0,
+      }
     }
     this.style = {
       searchBox: {
@@ -64,8 +67,26 @@ export default class Landing extends React.Component {
   }
 
   submitHandler = (e) => {
+    console.log("SUBMIT");
+    var result = [];
+    var chosen = this.state.chosenGraduated;
+    // Reset
+    this.setState({
+      query: {graduated: [],sks:0}
+    });
+
+    for (let i = 0; i < chosen.length; i++) {
+      result.push(chosen[i].id);
+    }
+    this.setState({
+      query: {
+        graduated: result,
+        sks: this.state.jumlah_sks
+      }
+    }, () => {
+      this.fetchPostQuery(this.state.query);
+    });
     e.preventDefault();
-    console.log("SUBMIT")
   }
 
   handleDosenChoice = (option) => {
@@ -86,104 +107,27 @@ export default class Landing extends React.Component {
     })
   }
 
-  generate_result = (session, program, query) => {
-    const show = (ans) => {
-      var query_result = session.format_answer(ans);
-      var functor = query.split("(")[0];
-      // console.log(query_result);
-      // Render dosen choice
-      if (functor === "dosen" && query_result !== "false.") {
-        var id_dosen = query_result.split(" = ")[1];
-        id_dosen = id_dosen.split(", ")[0]
-        var nama_dosen = query_result.split(" = ")[2];
-        var json_object = {
-          "id_dosen": id_dosen,
-          "nama_dosen": nama_dosen.substring(0, nama_dosen.length-1)
-        }
-        this.setState({list_dosen_choices: this.state.list_dosen_choices.concat(json_object)});
-      }
-
-      // Render mahasiswa (teman) choice
-      if (functor === "mahasiswa" && query_result !== "false.") {
-        var id_mhs = query_result.split(" = ")[1];
-        id_mhs = id_mhs.split(", ")[0]
-        var nama_mhs = query_result.split(" = ")[2];
-        // console.log(id_mhs);
-        // console.log(nama_mhs)
-        var json_object = {
-          "id_mhs": id_mhs,
-          "nama_mhs": nama_mhs.substring(0, nama_mhs.length-1)
-        }
-        this.setState({list_friend_choices: this.state.list_friend_choices.concat(json_object)});
-      }
-
-      // Render graduated choice
-      if (functor === "mata_kuliah" && query_result !== "false.") {
-        var id_mk = query_result.split(" = ")[1];
-        id_mk = id_mk.split(", ")[0]
-        var nama_mk = query_result.split(" = ")[2];
-        // console.log(id_mk);
-        // console.log(nama_mk)
-        var json_object = {
-          "id_mk": id_mk,
-          "nama_mk": nama_mk.substring(0, nama_mk.length-1)
-        }
-        this.setState({
-          list_graduated_choice: this.state.list_graduated_choice.concat(json_object)}
-        );
-      }
-    }
-
-    session.consult(program, {
-      success: function() {
-        session.query(query, {
-          success: function(ans) {
-            session.answers(show);
-          }
-        })
-      }
-    });
-  }
-
-  fetchDosenChoices = () => {
-    var pl = require("tau-prolog")
-    var session = pl.create(1000);
-    var program = program_pl + scheduler_pl;
-    // console.log(program);
-    const query = "dosen(ID, Nama)."
-    this.generate_result(session, program, query);
-  }
-
-  fetchMahasiswaChoices = () => {
-    var pl = require("tau-prolog")
-    var session = pl.create(1000);
-    var program = program_pl + scheduler_pl;
-    // console.log(program);
-    const query = "mahasiswa(ID, Nama)."
-    this.generate_result(session, program, query);
-  }
-
   fetchGraduatedChoices = () => {
-    var pl = require("tau-prolog")
-    var session = pl.create(1000);
-    var program = program_pl + scheduler_pl;
-    // console.log(program);
-    const query = "mata_kuliah(ID, Nama, _)."
-    this.generate_result(session, program, query);
-  }
-
-  componentDidMount = () => {
-    this.fetchDosenChoices();
-    this.fetchMahasiswaChoices();
-    this.fetchGraduatedChoices();
-
     getAllMatkul((matkul) => {
       console.log("FETCH MATKUL");
       console.log(matkul);
       this.setState({
-        test_matkul: matkul
+        list_matkul: matkul
       })
     });
+  }
+
+  fetchPostQuery = (json_data) => {
+    var query_data = json_data;
+    console.log(query_data);
+    postQuery((data, e) => {
+      data = query_data
+      console.log(e);
+    })
+  }
+
+  componentDidMount = () => {
+    this.fetchGraduatedChoices();
   }
   testrender = () => {
     return (
@@ -195,6 +139,7 @@ export default class Landing extends React.Component {
   render() {
     // console.log(this.state.list_friend_choices)
     // console.log(this.state.chosenDosen);
+    // this.fetchPostQuery();
     return (
       <div className="main-container">
         <h2>
@@ -251,9 +196,9 @@ export default class Landing extends React.Component {
               style={this.style}
               onSelect={this.handleGraduatedChoice}
               onRemove={this.handleGraduatedChoice}
-              options={this.state.list_graduated_choice}
+              options={this.state.list_matkul}
               placeholder="Pilih mata kuliah"
-              displayValue="nama_mk"
+              displayValue="nama_matkul"
               />
             </div>
           </div>
@@ -267,7 +212,11 @@ export default class Landing extends React.Component {
           </div>
           <button type="submit" >Submit</button>
         </form>
-        
+        <div>
+          [{this.state.query.graduated}]
+          <br></br>
+          {this.state.query.sks}
+        </div>
       </div>
     );
   }

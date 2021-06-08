@@ -17,7 +17,8 @@
 % json converters for the band and album so we can send/receive them on
 % the internetz.
 :- json_object mata_kuliah(id:atom, nama_matkul:atom, sks:integer).
-:- json_object info_kelas(nama_kelas:atom, nama_dosen:atom, sks:integer, jadwal:list).
+:- json_object info_kelas(nama_kelas:atom, nama_dosen:list, sks:integer, jadwal:list).
+:- json_object info_list_kelas_sudah_terpilih(sks:integer, semua_jadwal:list(info_kelas/4)).
 % :- json_object album(band:atom, name:atom, year:integer).
 
 % need our bands!
@@ -37,7 +38,8 @@ list_matkul(Request) :-
 	% jadwal_sesuai(A, Edo, 20, a, a, a, [], KelasSesuai, SKS),
 	% info_kelas_string(KelasSesuai,InfoKelasSesuai),
 	prolog_to_json(List_matkul, S),
-	reply_json(S, []).
+	format(user_output,"Request is: ~p~n",[S]),
+	reply_json_dict(S, []).
 
 
 % api to get the list of albums for a band, this requires a paramter of
@@ -49,7 +51,7 @@ list_matkul(Request) :-
 query_test(Request) :-
 		option(method(options), Request), !,
     cors_enable(Request,
-                    [ methods([post])
+                    [ methods([post,get,delete,put])
     ]),
     format(user_output,"Request is: ~p~n",[Request]),
     reply_json_dict(_{message:"Options"}).
@@ -57,11 +59,23 @@ query_test(Request) :-
 
 query_test(Request) :-
 	http_read_json_dict(Request, Data),
-	cors_enable( Request, [methods([post]) ]),
 	Data = _{graduated:Graduated, sks:SKS},
-	format(user_output,"Request is: ~p~n",[SKS]),
-	% jadwal_sesuai(m_1706979215, 'Edward Partogi G. A.', SKS, 'Pak Ade', 'Bukan Nafis', 'Gabut', Graduated, KelasMemenuhi, TotalSKSKelasMemenuhi),
-	reply_json_dict(Data).
+	format(user_output,"Request is: ~p~n",[Graduated]),
+ 	cors_enable(Request,
+      [ methods([post,get])
+    ]),
+% QUERY
+	jadwal_sesuai(SKS, Graduated),
+	findall(info_list_kelas_sudah_terpilih(JumlahSKS, SusunanKelas),
+	info_list_kelas_sudah_terpilih(JumlahSKS, SusunanKelas),
+	InfoSemuaKelas),
+% QUERY RESULT
+	prolog_to_json(InfoSemuaKelas, S),
+	format(user_output,"Request is: ~p~n",[S]),
+	reply_json(S).
+
+	% format(user_output,"Request is: ~p~n",[Data]),
+	% reply_json(_{code:200, message:"OK"}, []).
 
 % band_albums(Request) :-
 % 	http_parameters(Request, [band(Band, [])]),

@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import "./landing.css";
+import axios from "axios";
 import { program_pl } from "./database";
 import { scheduler_pl } from "./scheduler_pl";
 import {Multiselect} from "multiselect-react-dropdown";
@@ -81,7 +82,7 @@ export default class Landing extends React.Component {
     this.setState({
       query: {
         graduated: result,
-        sks: this.state.jumlah_sks
+        sks: parseInt(this.state.jumlah_sks)
       }
     }, () => {
       this.fetchPostQuery(this.state.query);
@@ -118,11 +119,12 @@ export default class Landing extends React.Component {
   }
 
   fetchPostQuery = (json_data) => {
+    const url = "http://localhost:8000/api/query";
     var query_data = json_data;
     console.log(query_data);
-    postQuery((data, e) => {
-      data = query_data
-      console.log(e);
+    axios.post(url, query_data)
+    .then( response => {
+      console.log(response)
     })
   }
 

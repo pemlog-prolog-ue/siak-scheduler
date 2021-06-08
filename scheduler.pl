@@ -1,23 +1,27 @@
 :- use_module(database).
+:- use_module(library(http/json_convert)).
 :- dynamic bentrok/2.
 :- dynamic semua_list_kelas_sudah_terpilih/1.
+:- dynamic info_list_kelas_sudah_terpilih/2.
 
-% cari_jadwal(m_10, 'Bunga Amalia', 20, [d_01, d_02], [m_01, m_02], [mk_01, mk_02], [mk_03, mk_04], [k_001, k_002, k_003, k_004, k_005])
+% :- json_object info_kelas(nama_kelas:atom, nama_dosen:atom, sks:integer, jadwal:list).
 
-info_kelas_string([], []) :- !.
-info_kelas_string([KelasA | KelasLainnya], [InfoKelasA | InfoKelasLainnya]):-
+list_info_kelas([], []) :- !.
+list_info_kelas([KelasA | KelasLainnya], [InfoKelasA | InfoKelasLainnya]):-
     kelas(KelasA, MataKuliah, KodeKelasA), mata_kuliah(MataKuliah, NamaMataKuliah, SKSMataKuliah),
     atomics_to_string([NamaMataKuliah, KodeKelasA], ' ', NamaKelasA),
 
-    dosen_kelas(KelasA, DosenKelasA), dosen(DosenKelasA, NamaDosenKelasA),
+    findall(NamaDosenKelasA,
+        (dosen_kelas(KelasA, DosenKelasA), dosen(DosenKelasA, NamaDosenKelasA)),
+    BagNamaDosenKelasA),
     
     findall([HariKelasA, JamMulaiKelasA, MenitMulaiKelasA, JamSelesaiKelasA, MenitSelesaiKelasA],
         jadwal_kelas(KelasA, HariKelasA, JamMulaiKelasA, MenitMulaiKelasA, JamSelesaiKelasA, MenitSelesaiKelasA),
     BagJadwalA),
     jadwal_to_string(BagJadwalA, JadwalAString),
 
-    InfoKelasA = info_kelas(NamaKelasA, NamaDosenKelasA, SKSMataKuliah, JadwalAString),
-    info_kelas_string(KelasLainnya, InfoKelasLainnya).
+    InfoKelasA = info_kelas(NamaKelasA, BagNamaDosenKelasA, SKSMataKuliah, JadwalAString),
+    list_info_kelas(KelasLainnya, InfoKelasLainnya).
 
 jadwal_to_string([], []):- !.
 jadwal_to_string([[Hari, JamMulai, MenitMulai, JamSelesai, MenitSelesai] | JadwalLainnya], [Jadwal1String | JadwalStringLainnya]):-
@@ -27,11 +31,14 @@ jadwal_to_string([[Hari, JamMulai, MenitMulai, JamSelesai, MenitSelesai] | Jadwa
     jadwal_to_string(JadwalLainnya, JadwalStringLainnya).
     
     
-jadwal_sesuai(IDMahasiswa, NamaMahasiswa, BatasSKS, PrefDosen, PrefTeman, PrefMataKuliah, ListMataKuliahSudahLulus, SetKelasSesuai, SKSSetKelasSesuai):-
+% jadwal_sesuai(IDMahasiswa, NamaMahasiswa, BatasSKS, PrefDosen, PrefTeman, PrefMataKuliah, ListMataKuliahSudahLulus):-
+jadwal_sesuai(BatasSKS, ListMataKuliahSudahLulus):-
+    write("Nafis carry us"),
     retractall(semua_list_kelas_sudah_terpilih(_)), assertz(semua_list_kelas_sudah_terpilih([])),
+    retractall(info_list_kelas_sudah_terpilih(_,_)),
     mata_kuliah_bisa_diambil(ListMataKuliahSudahLulus, ListMataKuliahBisaDiambil),
     kelas_bisa_diambil(ListMataKuliahBisaDiambil, ListKelasBisaDiambil),
-    semua_list_kelas_terpilih(BatasSKS, ListKelasBisaDiambil, SKSSetKelasSesuai, SetKelasSesuai, ListKelasBisaDiambil).
+    semua_list_kelas_terpilih(BatasSKS, ListKelasBisaDiambil, ListKelasBisaDiambil).
 
 cek_list_kelas_tidak_bentrok([_]) :- !.
 cek_list_kelas_tidak_bentrok([KelasA | KelasSisa]) :-
@@ -91,14 +98,9 @@ konversi_jadwal(JamMulai, MenitMulai, JamSelesai, MenitSelesai, TotalMenitMulai,
     TotalMenitMulai is JamMulai*60+MenitMulai,
     TotalMenitSelesai is JamSelesai*60+MenitSelesai.
 
-prasyarat_ada([], _):- !.
-prasyarat_ada([Prasyarat1 | PrasyaratLainnya], ListMataKuliahSudahLulus):-
-    member(Prasyarat1, ListMataKuliahSudahLulus),
-    prasyarat_ada(PrasyaratLainnya, ListMataKuliahSudahLulus).
-
 memenuhi_prasyarat(MataKuliah, ListMataKuliahSudahLulus) :-
     prasyarat(MataKuliah, ListPrasyaratMataKuliah),
-    prasyarat_ada(ListPrasyaratMataKuliah, ListMataKuliahSudahLulus).
+    subset(ListPrasyaratMataKuliah, ListMataKuliahSudahLulus).
 
 mata_kuliah_bisa_diambil(ListMataKuliahSudahLulus, ListMataKuliahBisaDiambil) :-
     bagof(IDMataKuliah,
@@ -121,18 +123,23 @@ pernah_terpilih(ListKelas, [ListKelasPernahTerpilih | _]):-
 pernah_terpilih(ListKelas, [_| ListKelasPernahTerpilihLainnya]):-
     pernah_terpilih(ListKelas, ListKelasPernahTerpilihLainnya).
 
-semua_list_kelas_sudah_terpilih([]).
-
-semua_list_kelas_terpilih(_, _, _, _, []) :- !.
-semua_list_kelas_terpilih(BatasSKS, ListKelasBisaDiambil, TotalSKS, ListKelasTerpilih, _):-
+semua_list_kelas_terpilih(_, [_|_], []) :- !.
+semua_list_kelas_terpilih(BatasSKS, ListKelasBisaDiambil, [_|ListTemporary]):-
     kelas_sesuai_sks(BatasSKS, ListKelasBisaDiambil, TotalSKS, ListKelasTerpilih, 0, []),
     semua_list_kelas_sudah_terpilih(SemuaListKelasPernahTerpilih),
-    \+pernah_terpilih(ListKelasTerpilih, SemuaListKelasPernahTerpilih),
+    \+pernah_terpilih(ListKelasTerpilih, SemuaListKelasPernahTerpilih), !,
+
     append(SemuaListKelasPernahTerpilih, [ListKelasTerpilih], SemuaListKelasTerpilihBaru),
-    retractall(semua_list_kelas_sudah_terpilih(_)), assertz(semua_list_kelas_sudah_terpilih(SemuaListKelasTerpilihBaru)).
-semua_list_kelas_terpilih(BatasSKS, [KelasA | SisaListKelasBisaDiambil], TotalSKS, ListKelasTerpilih, [_|ListTemporary]):-
-    append(SisaListKelasBisaDiambil, [KelasA], ListKelasBisaDiambil),
-    semua_list_kelas_terpilih(BatasSKS, ListKelasBisaDiambil, TotalSKS, ListKelasTerpilih, ListTemporary).
+    retractall(semua_list_kelas_sudah_terpilih(_)), assertz(semua_list_kelas_sudah_terpilih(SemuaListKelasTerpilihBaru)),
+    list_info_kelas(ListKelasTerpilih, ListKelasTerpilih_Info),
+    assertz(info_list_kelas_sudah_terpilih(TotalSKS, ListKelasTerpilih_Info)),
+
+    ListKelasBisaDiambil = [KelasA | SisaListKelasBisaDiambil],
+    append(SisaListKelasBisaDiambil, [KelasA], ListKelasBisaDiambilBaru),
+    semua_list_kelas_terpilih(BatasSKS, ListKelasBisaDiambilBaru, ListTemporary).
+semua_list_kelas_terpilih(BatasSKS, [KelasA | SisaListKelasBisaDiambil], [_|ListTemporary]):-
+    append(SisaListKelasBisaDiambil, [KelasA], ListKelasBisaDiambilBaru),
+    semua_list_kelas_terpilih(BatasSKS, ListKelasBisaDiambilBaru, ListTemporary).
 
 kelas_sesuai_sks(_, [], 0, [], _, _) :- !.
 kelas_sesuai_sks(BatasSKS, ListKelasBisaDiambil, TotalSKSDiambil, KelasMemenuhi, SKSTemporary, ListTemporary):-
@@ -141,6 +148,7 @@ kelas_sesuai_sks(BatasSKS, ListKelasBisaDiambil, TotalSKSDiambil, KelasMemenuhi,
     mata_kuliah(MataKuliah, _, SKSMataKuliah),
     BatasSKS >= SKSTemporary+SKSMataKuliah,
     cek_1_kelas_tidak_bentrok_dengan_list_kelas(KelasBisaDiambilA, ListTemporary), !,
+
     append([KelasBisaDiambilA], KelasMemenuhiLainnya, KelasMemenuhi),
     append([KelasBisaDiambilA], ListTemporary, ListTemporaryBerikutnya),
     SKSTemporaryBerikutnya is SKSTemporary+SKSMataKuliah,

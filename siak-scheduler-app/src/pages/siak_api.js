@@ -14,22 +14,3 @@ export const getAllMatkul = (callback) => {
       console.log("SIAK_API");
       console.log(data)})
 }
-
-export const postQuery = async (query_data, callback) => {
-  
-  // api call for the albums, generate the band parameter manually here
-  // because it's less code :) 
-  // fetch does allow get paramters to be passed via an object but I'd rather 
-  // talk about it than actually do it... 
-    const requestOptions = {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(query_data)
-    };
-    const promise = await fetch('/api/query', requestOptions);
-    const resp = await promise.json();
-    console.log(resp);
-
-//   .then((resp) => resp.json()) 
-//   .then((data) => callback(data))
-}

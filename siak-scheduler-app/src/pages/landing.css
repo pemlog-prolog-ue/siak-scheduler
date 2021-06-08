@@ -1,3 +1,7 @@
+* {
+  margin: 0
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -7,9 +11,9 @@
 .field-container {
   display: flex;
   flex-direction: column;
-  align-items: left;
-  min-width: 500px;
-  max-width: 500px;
+  /* align-items: left; */
+  min-width: 700px;
+  max-width: 700px;
   margin-bottom: 20px;
 }
 

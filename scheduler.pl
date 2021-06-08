@@ -35,7 +35,6 @@ jadwal_to_string([[Hari, JamMulai, MenitMulai, JamSelesai, MenitSelesai] | Jadwa
     
 % jadwal_sesuai(IDMahasiswa, NamaMahasiswa, BatasSKS, PrefDosen, PrefTeman, PrefMataKuliah, ListMataKuliahSudahLulus):-
 jadwal_sesuai(BatasSKS, ListMataKuliahSudahLulus):-
-    write("Nafis carry us"),
     retractall(semua_list_kelas_sudah_terpilih(_)), assertz(semua_list_kelas_sudah_terpilih([])),
     retractall(info_list_kelas_sudah_terpilih(_,_)),
     mata_kuliah_bisa_diambil(ListMataKuliahSudahLulus, ListMataKuliahBisaDiambil),

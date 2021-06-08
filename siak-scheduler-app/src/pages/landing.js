@@ -148,48 +148,6 @@ export default class Landing extends React.Component {
           Cari jadwal Siak
         </h2>
         <form className="form-container" onSubmit={this.submitHandler}>
-          {/* <div className="field-container">
-            <label>Preferensi dosen</label>
-            <div>
-              <Multiselect
-              showCheckbox={true}
-              style={this.style}
-              onSelect={this.handleDosenChoice}
-              onRemove={this.handleDosenChoice}
-              options={this.state.list_dosen_choices}
-              placeholder="Pilih dosen favorit"
-              displayValue="nama_dosen"
-              />
-            </div>
-          </div>
-          <div className="field-container">
-            <label>Preferensi teman</label>
-            <div>
-              <Multiselect
-              showCheckbox={true}
-              style={this.style}
-              onSelect={this.handleFriendChoice}
-              onRemove={this.handleFriendChoice}
-              options={this.state.list_friend_choices}
-              placeholder="Pilih ingin sekelas dengan siapa"
-              displayValue="nama_mhs"
-              />
-            </div>
-          </div>
-          <div className="field-container">
-            <label>Preferensi minat</label>
-            <div>
-              <Multiselect
-              showCheckbox={true}
-              style={this.style}
-              onSelect={this.handleDosenChoice}
-              onRemove={this.handleDosenChoice}
-              options={this.state.list_dosen_choices}
-              placeholder="Pilih ingin mengambil minat apa"
-              displayValue="nama_dosen"
-              />
-            </div>
-          </div> */}
           <div className="field-container">
             <label>Mata kuliah yang sudah lulus:</label>
             <div>

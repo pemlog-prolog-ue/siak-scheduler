@@ -234,9 +234,6 @@ kelas(k_053,mk_22,'-').
 % Tenis
 kelas(k_054,mk_23,'-').
 
-% tenis Meja
-kelas(k_055,mk_24,'-').
-
 % mpkt a
 kelas(k_055,mk_25,'A').
 kelas(k_056,mk_25,'B').
@@ -332,6 +329,9 @@ kelas(k_105,mk_45,'C').
 
 % banjut
 kelas(k_106,mk_46,'-').
+
+% tenis Meja
+kelas(k_107,mk_24,'-').
 
 % dosen/2
 % /1 = ID dosen
@@ -523,10 +523,6 @@ dosen_kelas(k_053,  d_40).
 dosen_kelas(k_054,  d_36).
 dosen_kelas(k_054,  d_41).
 
-% tenis Meja
-dosen_kelas(k_055,  d_42).
-dosen_kelas(k_055,  d_43).
-
 % mpkt a
 dosen_kelas(k_055,  d_44).
 dosen_kelas(k_055,  d_45).
@@ -633,6 +629,10 @@ dosen_kelas(k_105,  d_70).
 % banjut
 dosen_kelas(k_106,  d_71).
 
+% tenis Meja
+dosen_kelas(k_107,  d_42).
+dosen_kelas(k_107,  d_43).
+
 % kapasitas_kelas/3
 % /1 = ID kelas
 % /2 = kapasitas total
@@ -737,9 +737,6 @@ kapasitas_kelas(k_053,25,0).
 % Tenis
 kapasitas_kelas(k_054,25,0).
 
-% tenis Meja
-kapasitas_kelas(k_055,25,0).
-
 % mpkt a
 kapasitas_kelas(k_055,70,0).
 kapasitas_kelas(k_056,70,0).
@@ -835,6 +832,9 @@ kapasitas_kelas(k_105,68,0).
 
 % banjut
 kapasitas_kelas(k_106,50,2).
+
+% tenis Meja
+kapasitas_kelas(k_107,25,0).
 
 % jadwal_kelas/6
 % /1 = ID kelas
@@ -988,9 +988,6 @@ jadwal_kelas(k_053, kamis, 17, 0, 17, 50).
 % Tenis
 jadwal_kelas(k_054, rabu, 17, 0, 17, 50).
 
-% tenis Meja
-jadwal_kelas(k_055, kamis, 17, 0, 17, 50).
-
 % mpkt a
 jadwal_kelas(k_055, jumat, 13, 0, 15, 30).
 jadwal_kelas(k_056, jumat, 13, 0, 15, 30).
@@ -1127,6 +1124,9 @@ jadwal_kelas(k_105, kamis, 13, 0, 14, 40).
 
 % banjut
 jadwal_kelas(k_106, senin, 13, 0, 15, 30).
+
+% tenis Meja
+jadwal_kelas(k_107, kamis, 17, 0, 17, 50).
 
 % jadwal_mahasiswa/2
 % /1 = ID mahasiswa

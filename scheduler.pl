@@ -4,12 +4,14 @@
 :- dynamic semua_list_kelas_sudah_terpilih/1.
 :- dynamic info_list_kelas_sudah_terpilih/2.
 
-% :- json_object info_kelas(nama_kelas:atom, nama_dosen:atom, sks:integer, jadwal:list).
+%  BUAT NAFIS
+:- json_object info_kelas(nama_kelas:atom, nama_dosen:list, sks:integer, jadwal:list).
+:- json_object info_list_kelas_sudah_terpilih(sks:integer, semua_jadwal:list(info_kelas/4)).
 
 list_info_kelas([], []) :- !.
 list_info_kelas([KelasA | KelasLainnya], [InfoKelasA | InfoKelasLainnya]):-
     kelas(KelasA, MataKuliah, KodeKelasA), mata_kuliah(MataKuliah, NamaMataKuliah, SKSMataKuliah),
-    atomics_to_string([NamaMataKuliah, KodeKelasA], ' ', NamaKelasA),
+    atomic_list_concat([NamaMataKuliah, KodeKelasA], ' ', NamaKelasA),
 
     findall(NamaDosenKelasA,
         (dosen_kelas(KelasA, DosenKelasA), dosen(DosenKelasA, NamaDosenKelasA)),

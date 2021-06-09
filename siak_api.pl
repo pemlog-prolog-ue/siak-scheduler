@@ -60,27 +60,13 @@ generate_solution(Request) :-
       [ methods([post,get])
   ]),
 % QUERY
-	jadwal_sesuai(SKS, Graduated),
-	findall(info_list_kelas_sudah_terpilih(JumlahSKS, SusunanKelas),
-	info_list_kelas_sudah_terpilih(JumlahSKS, SusunanKelas),
-	InfoSemuaKelas),
+	convert_to_atom(Graduated, Graduated_atom),
+	jadwal_sesuai(SKS, Graduated_atom),
+	findall(info_list_kelas_sudah_terpilih(JumlahSKS, SusunanKelas),info_list_kelas_sudah_terpilih(JumlahSKS, SusunanKelas),InfoSemuaKelas),
 % QUERY RESULT
 	prolog_to_json(InfoSemuaKelas, S),
 	format(user_output,"Request is: ~p~n",[S]),
 	reply_json(S).
-
-	% format(user_output,"Request is: ~p~n",[Data]),
-	% reply_json(_{code:200, message:"OK"}, []).
-
-% band_albums(Request) :-
-% 	http_parameters(Request, [band(Band, [])]),
-
-% 	findall(album(Band, Album, Year),
-% 		band_album(Band, Album, Year),
-% 		Albums),
-
-% 	prolog_to_json(Albums, S),
-% 	reply_json(S, []).
 
 
 

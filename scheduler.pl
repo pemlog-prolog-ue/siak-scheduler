@@ -186,3 +186,8 @@ kelas_sesuai_sks(BatasSKS, [KelasBisaDiambilA | SisaKelasBisaDiambil], TotalSKSD
     TotalSKSDiambil is SKSKelasMemenuhiLainnya+SKSMataKuliah.
 kelas_sesuai_sks(BatasSKS, [_ | SisaKelasBisaDiambil], TotalSKSDiambil, KelasMemenuhi, SKSTemporary, ListTemporary):-
     kelas_sesuai_sks(BatasSKS, SisaKelasBisaDiambil, TotalSKSDiambil, KelasMemenuhi, SKSTemporary, ListTemporary).
+
+convert_to_atom([],[]).
+convert_to_atom([A | B], [X | Y]) :-
+	atom_string(X, A),
+	convert_to_atom(B, Y).
